@@ -8,12 +8,19 @@ Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử d�
 
 ## Ứng dụng yêu cầu cài đặt Trình Duyệt Chrome và SeleniumBasic
 
-1. Để ứng dụng hoạt động cần tải SeleniumBasic 
+1. Thao tác tay tải và cài đặt SeleniumBasic
  https://github.com/florentbr/SeleniumBasic
-2. Cần cài đặt ứng dụng Chrome và cập nhật chrome 
+2. Thao tác tay cài đặt ứng dụng Chrome và cập nhật Chrome
  https://www.google.com/intl/vi_vn/chrome/
+ Cách cập nhật Chrome:
+ 
+![update_chrome](https://user-images.githubusercontent.com/58664571/160245788-15983109-eaca-44dd-a78d-815493e2f7e6.gif)
+
+
 3. Chạy cập nhật ChromeDriver trước khi đăng nhập (Nút tự động cập nhật)
 4. Cần đăng nhập Zalo bằng tay (click nút Đăng nhập để mở trình duyệt)
+
+
 
 ## Rủi ro:
 Nếu gửi quá nhiều tin cho nhiều số điện thoại, tài khoản có thể bị Zalo khóa nếu bị phát hiện có hành vi Spam tin nhắn.
@@ -21,6 +28,8 @@ Nếu gửi quá nhiều tin cho nhiều số điện thoại, tài khoản có 
 
 Ứng dụng sử dụng Shell và Api để tự động cập nhật driver điều khiển Chrome nên trình duyệt xem là virus, vấn đề này đã nói ở bài viết này
 Vì quá trình cài đặt và cập nhật bằng tay rất vất vả nên cần tự động tác vụ để giảm gánh nặng công việc, nên khó tránh thao tác với System, mà thao tác với System thì liên quan đến vấn đề an toàn, nên Trình quét sẽ nhận diện ứng dụng có nguy cơ gây nguy hiểm cho máy tính của bạn.
+
+
 
 ## AN TOÀN VÀ BẢO MẬT
 ### Các dòng lệnh trình quét xem là Virus hay mã nguy hiểm bao gồm:
