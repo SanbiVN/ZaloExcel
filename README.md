@@ -22,20 +22,20 @@ Vì quá trình cài đặt và cập nhật bằng tay rất vất vả nên c�
 
 
 #### AN TOÀN VÀ BẢO MẬT
-######Các dòng lệnh trình quét xem là Virus hay mã nguy hiểm bao gồm:
+#####Các dòng lệnh trình quét xem là Virus hay mã nguy hiểm bao gồm:
 1. Shell """" & chromePath & """" & CmdLn, vbHide
 2. URLDownloadToFile(0, eURL, temp & ZIP, 0, 0)
 3. FSO.CopyFile temp & EXE, sb2 & EXE
 4. VBA.CreateObject("Shell.Application").Namespace(temp & "\").CopyHere .Namespace(temp & ZIP).items
 
-######Các API truy cập bộ nhớ System cũng xem là mã tìm tàng:
-    Private Declare PtrSafe Function GlobalUnlock Lib "kernel32" (ByVal hMem As LongPtr) As LongPtr
-    Private Declare PtrSafe Function GlobalLock Lib "kernel32" (ByVal hMem As LongPtr) As LongPtr
-    Private Declare PtrSafe Function GlobalAlloc Lib "kernel32" (ByVal wFlags As Long, ByVal dwBytes As LongPtr) As LongPtr
-    Private Declare PtrSafe Function CloseClipboard Lib "USER32" () As Long
-    Private Declare PtrSafe Function OpenClipboard Lib "USER32" (ByVal hwnd As LongPtr) As LongPtr
-    Private Declare PtrSafe Function EmptyClipboard Lib "USER32" () As Long
-    Private Declare PtrSafe Function lstrcpy Lib "kernel32" (ByVal lpString1 As Any, ByVal lpString2 As Any) As LongPtr
-    Private Declare PtrSafe Function SetClipboardData Lib "USER32" (ByVal wFormat As Long, ByVal hMem As LongPtr) As LongPtr
-    Private Declare PtrSafe Sub CopyMem Lib "kernel32" Alias "RtlMoveMemory" (destination As Any, Source As Any, ByVal Length As LongPtr)
+#####Các API truy cập bộ nhớ System cũng xem là mã tìm tàng:
+- Private Declare PtrSafe Function GlobalUnlock Lib "kernel32" (ByVal hMem As LongPtr) As LongPtr
+- Private Declare PtrSafe Function GlobalLock Lib "kernel32" (ByVal hMem As LongPtr) As LongPtr
+- Private Declare PtrSafe Function GlobalAlloc Lib "kernel32" (ByVal wFlags As Long, ByVal dwBytes As LongPtr) As LongPtr
+- Private Declare PtrSafe Function CloseClipboard Lib "USER32" () As Long
+- Private Declare PtrSafe Function OpenClipboard Lib "USER32" (ByVal hwnd As LongPtr) As LongPtr
+- Private Declare PtrSafe Function EmptyClipboard Lib "USER32" () As Long
+- Private Declare PtrSafe Function lstrcpy Lib "kernel32" (ByVal lpString1 As Any, ByVal lpString2 As Any) As LongPtr
+- Private Declare PtrSafe Function SetClipboardData Lib "USER32" (ByVal wFormat As Long, ByVal hMem As LongPtr) As LongPtr
+- Private Declare PtrSafe Sub CopyMem Lib "kernel32" Alias "RtlMoveMemory" (destination As Any, Source As Any, ByVal Length As LongPtr)
   
