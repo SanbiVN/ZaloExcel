@@ -1,6 +1,9 @@
 # ZaloExcel
  Gửi tin nhắn Zalo từ Ứng dụng Excel
 
+
+![zalo_excel](https://user-images.githubusercontent.com/58664571/160244685-c16d9c82-5601-4d8b-af79-cd2f1e5f11e5.jpg)
+
 Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử dụng ứng dụng này.
 
 ## Ứng dụng yêu cầu cài đặt Trình Duyệt Chrome và SeleniumBasic
