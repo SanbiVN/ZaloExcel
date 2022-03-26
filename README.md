@@ -8,9 +8,11 @@ Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử d�
 
 ## Ứng dụng yêu cầu cài đặt Trình Duyệt Chrome và SeleniumBasic
 
-1. Để ứng dụng hoạt động cần tải SeleniumBasic
-2. Cần cài đặt ứng dụng Chrome và cập nhật chrome
-3. Chạy cập nhật ChromeDriver trước khi đăng nhập
+1. Để ứng dụng hoạt động cần tải SeleniumBasic 
+ https://github.com/florentbr/SeleniumBasic
+2. Cần cài đặt ứng dụng Chrome và cập nhật chrome 
+ https://www.google.com/intl/vi_vn/chrome/
+3. Chạy cập nhật ChromeDriver trước khi đăng nhập (Nút tự động cập nhật)
 4. Cần đăng nhập Zalo bằng tay (click nút Đăng nhập để mở trình duyệt)
 
 ## Rủi ro:
