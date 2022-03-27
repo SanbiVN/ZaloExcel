@@ -1,4 +1,4 @@
-# ZaloExcel v1.1
+# ZaloExcel v1.0.1
  Gửi tin nhắn Zalo từ Ứng dụng Excel
 
 
