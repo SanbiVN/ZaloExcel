@@ -12,8 +12,8 @@ Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử d�
  https://github.com/florentbr/SeleniumBasic
 2. Thao tác tay cài đặt ứng dụng Chrome và cập nhật Chrome
  https://www.google.com/intl/vi_vn/chrome/
- Cách cập nhật Chrome,:
- (Đóng tất cả Chrome, mở lại gõ chrome://settings/help để cập nhật)
+ 
+ - Cách cập nhật Chrome, (Đóng tất cả Chrome, mở lại gõ chrome://settings/help để cập nhật):
  
 ![update_chrome](https://user-images.githubusercontent.com/58664571/160245788-15983109-eaca-44dd-a78d-815493e2f7e6.gif)
 
