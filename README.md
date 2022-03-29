@@ -1,8 +1,8 @@
-# ZaloExcel v1.0.1
- Gửi tin nhắn Zalo từ Ứng dụng Excel
+# ZaloExcel v1.0.2
+ Gửi tin nhắn, hình ảnh, biểu đồ và tập tin qua Zalo từ Ứng dụng Excel
 
+![zalo_sending](https://user-images.githubusercontent.com/58664571/160546664-bda998d6-114f-440f-a871-4d3f76be8168.gif)
 
-![zalo_excel](https://user-images.githubusercontent.com/58664571/160244685-c16d9c82-5601-4d8b-af79-cd2f1e5f11e5.jpg)
 
 Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử dụng ứng dụng này.
 
@@ -21,6 +21,10 @@ Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử d�
 3. Chạy cập nhật ChromeDriver trước khi đăng nhập (Nút tự động cập nhật)
 4. Cần đăng nhập Zalo bằng tay (click nút Đăng nhập để mở trình duyệt)
 
+## HƯỚNG DẪN
+Chọn kiểu dữ liệu để gửi
+
+![zalo_pick](https://user-images.githubusercontent.com/58664571/160544552-41b74783-6fe4-44f8-aa0d-b8c28ffb0df1.gif)
 
 
 ## Rủi ro:
