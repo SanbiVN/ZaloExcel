@@ -1,6 +1,8 @@
 # ZaloExcel v1.0.2
  Gửi tin nhắn, hình ảnh, biểu đồ và tập tin qua Zalo từ Ứng dụng Excel
 
+Ứng dụng an toàn và miễn phí 100%
+
 ![zalo_sending](https://user-images.githubusercontent.com/58664571/160546664-bda998d6-114f-440f-a871-4d3f76be8168.gif)
 
 
@@ -22,7 +24,10 @@ Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử d�
 4. Cần đăng nhập Zalo bằng tay (click nút Đăng nhập để mở trình duyệt)
 
 ## HƯỚNG DẪN
-Chọn kiểu dữ liệu để gửi
+
+Để gửi ảnh chụp màn hình: chỉ cần nhấn nút chụp màn hình [PS] (Print Screen), sau đó chọn ô cột D và nhấn nút BNT để đặt "[Bộ nhớ tạm]" để gửi. Để quá trình gửi thành công, vui lòng không thao tác sao chép (không nhấn Ctrl+C).
+
+Chọn kiểu dữ liệu để gửi (hình ảnh hướng dẫn):
 
 ![zalo_pick](https://user-images.githubusercontent.com/58664571/160544552-41b74783-6fe4-44f8-aa0d-b8c28ffb0df1.gif)
 
