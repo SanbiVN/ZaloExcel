@@ -1,5 +1,5 @@
-# ZaloExcel v1.0.1
- Gửi tin nhắn Zalo từ Ứng dụng Excel
+# ZaloExcel v1.0.2
+ Gửi tin nhắn, hình ảnh, biểu đồ và tập tin qua Zalo từ Ứng dụng Excel
 
 ![zalo_sending](https://user-images.githubusercontent.com/58664571/160546664-bda998d6-114f-440f-a871-4d3f76be8168.gif)
 
