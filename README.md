@@ -3,8 +3,7 @@
 
 Ứng dụng an toàn và miễn phí 100%
 
-![zalo_sending](https://user-images.githubusercontent.com/58664571/160546664-bda998d6-114f-440f-a871-4d3f76be8168.gif)
-
+![zalo_sending](https://user-images.githubusercontent.com/58664571/160992161-0bacb3b8-d12d-49aa-9c13-3d1085f82ceb.gif)
 
 Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử dụng ứng dụng này.
 
