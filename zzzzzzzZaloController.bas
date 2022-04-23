@@ -2,7 +2,7 @@
 Option Explicit
 Option Compare Text
 'MsgBox VN
-' __   _____   _ ®
+' __   _____   _ ?
 ' \ \ / / _ | / \
 '  \ \ /| _ \/ / \
 '   \_/ |___/_/ \_\
@@ -165,7 +165,6 @@ Private Function chxSleepWindow() As Boolean
 End Function
 
 
-
 Private Sub btnSend(Optional action As Boolean)
   On Error Resume Next
   shZaloExcel.Shapes("btnSend").TextFrame2.TextRange.Characters.Text = IIf(action, txtSending, txtSend)
@@ -176,14 +175,14 @@ Private Sub btnSendAll(Optional action As Boolean)
 End Sub
 
 
-Private Sub Login_click()
+
+Sub Login_click_()
   If ZaloAppLogin Then
     Alert ChrW(272) & ChrW(227) & " " & ChrW(273) & ChrW(259) & "ng nh" & ChrW(7853) & "p"
-
   End If
 End Sub
 
-Private Sub ZaloContact_click()
+Sub ZaloContact_click_()
   On Error Resume Next
   If Not ZaloAppGotoContact Then
     Exit Sub
@@ -231,7 +230,7 @@ r:
   End If
 End Sub
 
-Private Sub ZaloSend_click()
+Sub ZaloSend_click_()
   Dim w, rg, rg2 As Object, r
   Set rg = shZaloExcel.Range("B4")
   Set rg2 = Selection
@@ -248,7 +247,7 @@ Private Sub ZaloSend_click()
   End If
 End Sub
 
-Private Sub ZaloSendAll_click()
+Sub ZaloSendAll_click_()
   Dim w, rg, lr&
   Set rg = shZaloExcel.Range("B4")
   lr = rg(10000, 1).End(3).row - rg.row + 1
@@ -338,8 +337,7 @@ Private Function ClipboardTitle()
 End Function
 Private Sub ZaloAppSearchAndSend_test()
   'ZaloAppSearchAndSend "0934847608"
-
-  ZaloSendAll_click
+  ZaloSendAll_click_
   Exit Sub
   If Not ZaloAppGotoContact Then
     Exit Sub
@@ -1006,7 +1004,7 @@ Sub PickObjects(Optional ByVal style% = 0)
       End If
       list = ""
       On Error Resume Next
-      Set a = Application.InputBox("Ô", Type:=8)
+      Set a = Application.InputBox("?", Type:=8)
       On Error GoTo 0
       If TypeName(a) = "Range" Then
         For Each rg4 In a.Areas
@@ -1029,7 +1027,7 @@ Exit Sub
 ch:
   Set sp1 = ws.Shapes("btnObjects")
   cap1 = ChrW(212) & "/" & ChrW(272) & "T"
-  If sp1.TextFrame2.TextRange.Text = "Dán" And (style_ = 1 Or style_ = 2) Then
+  If sp1.TextFrame2.TextRange.Text = "D?n" And (style_ = 1 Or style_ = 2) Then
     style = style_
     Call AppendObjectsToList(list, style, True)
     sp1.TextFrame2.TextRange.Text = cap1
@@ -1037,7 +1035,7 @@ ch:
   Else
     If style = 1 Or style = 2 Then
       style_ = style
-      sp1.TextFrame2.TextRange.Text = "Dán"
+      sp1.TextFrame2.TextRange.Text = "D?n"
       Alert Timeout:=0, title:=ChrW(272) & ChrW(227) & " ch" & ChrW(233) & "p t" & ChrW(234) & "n v" & ChrW(224) & "o b" & ChrW(7897) & " nh" & ChrW(7899) & " t" & ChrW(7841) & "m th" & ChrW(7901) & "i", Prompt:= _
            ChrW(272) & ChrW(7889) & "i t" & ChrW(432) & ChrW(7907) & "ng: " & nlist & vbLf & vbLf & _
            "(" & ChrW(272) & ChrW(7871) & "n Trang [Zalo Excel] " & "ch" & ChrW(7885) & "n " & ChrW(244) & " c" & ChrW(7897) & "t D " & ChrW(273) & ChrW(7875) & " d" & ChrW(225) & "n)" & vbLf & _
@@ -1355,6 +1353,7 @@ Function DialogExplorer(Optional FolderPath$, _
     If FileDialog = 1 Then .Filters.clear
   End With
 End Function
+
 
 
 
