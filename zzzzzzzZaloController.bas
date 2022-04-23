@@ -647,6 +647,15 @@ End Function
 
 
 
+Function glbShellA()
+  Set glbShellA = VBA.CreateObject("Shell.Application")
+End Function
+Function glbHTMLFile()
+ Set glbHTMLFile = VBA.CreateObject("HTMLFile")
+End Function
+Function glbXHR()
+ Set glbXHR = VBA.CreateObject("Microsoft.XMLHTTP")
+End Function
 Private Sub getChromeLastVesion_test()
   Debug.Print getChromeLastVesion()
 End Sub
@@ -1353,6 +1362,8 @@ Function DialogExplorer(Optional FolderPath$, _
     If FileDialog = 1 Then .Filters.clear
   End With
 End Function
+
+
 
 
 
