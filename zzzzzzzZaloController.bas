@@ -8,6 +8,82 @@ Option Compare Text
 '   \_/ |___/_/ \_\
 '
 
+Private Const DelayDoubleClick As Double = 0.95
+Private Const GroupCenter = "GroupCenter"
+Private CallerAutoScroll$
+Private TimeAutoScroll%
+Private AllowAutoScroll As Boolean
+Private AllowTurnSheet As Boolean
+Private ScrollDown%, ScrollToRight%
+#If VBA7 Then
+Private Declare PtrSafe Function getTickCount Lib "kernel32.dll" Alias "GetTickCount" () As Long
+Private Declare PtrSafe Function SHGetFolderPath Lib "shell32.dll" Alias "SHGetFolderPathA" (ByVal hwndOwner As Long, ByVal nFolder As Long, ByVal hToken As Long, ByVal dwFlags As Long, ByVal lpszPath As String) As Long
+#Else
+Private Declare Function getTickCount Lib "kernel32.dll" Alias "GetTickCount" () As Long
+Private Declare Function SHGetFolderPath Lib "shell32.dll" Alias "SHGetFolderPathA" (ByVal hwndOwner As Long, ByVal nFolder As Long, ByVal hToken As Long, ByVal dwFlags As Long, ByVal lpszPath As String) As Long
+#End If
+
+
+Public Type RECT
+    Left As Long
+    Top As Long
+    RIGHT As Long
+    BOTTOM As Long
+End Type
+Public Type POINTAPI
+  X As Long
+  Y As Long
+End Type
+#If VBA7 Then
+Private Declare PtrSafe Function GetWindowRect Lib "user32" (ByVal hwnd As LongPtr, lpRect As RECT) As Long
+Private Declare PtrSafe Function SetWindowsHookEx Lib "user32" Alias "SetWindowsHookExA" (ByVal idHook As Long, ByVal lpfn As LongPtr, ByVal hmod As LongPtr, ByVal dwThreadId As Long) As Long
+Private Declare PtrSafe Function CallNextHookEx Lib "user32" (ByVal hHook As LongPtr, ByVal CodeNo As Long, ByVal wParam As LongPtr, ByVal lParam As LongPtr) As Long
+Private Declare PtrSafe Function UnhookWindowsHookEx Lib "user32" (ByVal hHook As LongPtr) As Long
+Private Declare PtrSafe Function GetCurrentThreadId Lib "kernel32" () As Long
+Public Declare PtrSafe Function FindWindowEx Lib "user32" Alias "FindWindowExA" (ByVal ParenthWnd As LongPtr, ByVal ChildHwnd As LongPtr, ByVal classname As String, ByVal Caption As String) As LongPtr
+Private Declare PtrSafe Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As LongPtr, ByVal wMsg As Long, ByVal wParam As LongPtr, lParam As Any) As Long
+Private Declare PtrSafe Function SetWindowPos Lib "user32" (ByVal hwnd As LongPtr, ByVal hWndInsertAfter As Long, ByVal X As Long, ByVal Y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
+Private Declare PtrSafe Function CreateWindowEx Lib "user32" Alias "CreateWindowExA" (ByVal dwExStyle As Long, ByVal lpClassName As String, ByVal lpWindowName As String, ByVal dwStyle As Long, ByVal X As Long, ByVal Y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hwndParent As Long, ByVal hMenu As Long, ByVal hInstance As Long, lpParam As Any) As Long
+Private Declare PtrSafe Function DeleteObject Lib "gdi32.dll" (ByVal hObject As Long) As Long
+Private Declare PtrSafe Function CreateFont Lib "gdi32" Alias "CreateFontA" (ByVal h As Long, ByVal w As Long, ByVal e As Long, ByVal o As Long, ByVal w As Long, ByVal i As Long, ByVal u As Long, ByVal s As Long, ByVal c As Long, ByVal OP As Long, ByVal cp As Long, ByVal q As Long, ByVal PAF As Long, ByVal f As String) As Long
+Private Declare PtrSafe Function SetWindowTextW Lib "user32" (ByVal hwnd As LongPtr, ByVal lpString As LongPtr) As Long
+Private Declare PtrSafe Function MsgBoxTimeoutW Lib "user32" Alias "MessageBoxTimeoutW" (ByVal hwnd As LongPtr, ByVal lpText As String, ByVal lpCaption As String, ByVal wType As VbMsgBoxStyle, ByVal wlange As Long, ByVal dwTimeout As Long) As Long
+Private Declare PtrSafe Function GetCursorPos Lib "user32" (lpPoint As POINTAPI) As Long
+Private Declare PtrSafe Function ClientToScreen Lib "user32" (ByVal hwnd As LongPtr, lpPoint As POINTAPI) As Long
+Private Declare PtrSafe Function MoveWindow Lib "user32.dll" (ByVal hwnd As LongPtr, ByVal X As Long, ByVal Y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal bRepaint As Long) As Long
+#Else
+Private Declare Function MoveWindow Lib "user32.dll" (ByVal hwnd As Long, ByVal X As Long, ByVal Y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal bRepaint As Long) As Long
+Private Declare Function GetWindowRect Lib "USER32" (ByVal hwnd As Long, lpRect As RECT) As Long
+Private Declare Function MsgBoxTimeoutW Lib "user32" Alias "MessageBoxTimeoutW" (ByVal hWnd As Long, ByVal lpText As String, ByVal lpCaption As String, ByVal wType As VbMsgBoxStyle, ByVal wlange As Long, ByVal dwTimeout As Long) As Long
+Private Declare Function SetWindowsHookEx Lib "user32" Alias "SetWindowsHookExA" ( ByVal idHook As Long, ByVal lpfn As Long, ByVal hMod As Long, ByVal dwThreadId As Long) As Long
+Private Declare Function CallNextHookEx Lib "user32" ( ByVal hHook As Long, ByVal CodeNo As Long, ByVal wParam As Long, ByVal lParam As Long) As Long
+Private Declare Function UnhookWindowsHookEx Lib "user32" ( ByVal hHook As Long) As Long
+Private Declare Function GetCurrentThreadId Lib "kernel32" () As Long
+Public Declare Function FindWindowEx Lib "user32" Alias "FindWindowExA" ( ByVal ParenthWnd As Long, ByVal ChildhWnd As Long, ByVal className As String, ByVal Caption As String) As Long
+Private Declare Function SendMessage Lib "user32" Alias "SendMessageA" ( ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
+Private Declare Function SetWindowPos Lib "user32" ( ByVal hwnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal Y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
+Private Declare Function CreateWindowEx Lib "user32" Alias "CreateWindowExA" ( ByVal dwExStyle As Long, ByVal lpClassName As String, ByVal lpWindowName As String, ByVal dwStyle As Long, ByVal x As Long, ByVal Y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hwndParent As Long, ByVal hMenu As Long, ByVal hInstance As Long, lpParam As Any) As Long
+Private Declare Function DeleteObject Lib "gdi32.dll" ( ByVal hObject As Long) As Long
+Private Declare Function CreateFont Lib "gdi32" Alias "CreateFontA" ( ByVal h As Long, ByVal W As Long, ByVal e As Long, ByVal o As Long, ByVal W As Long, ByVal i As Long, ByVal u As Long, ByVal s As Long, ByVal c As Long, ByVal OP As Long, ByVal CP As Long, ByVal q As Long, ByVal PAF As Long, ByVal f As String) As Long
+Private Declare Function SetWindowTextW Lib "user32" ( ByVal hwnd As Long, ByVal lpString As Long) As Long
+Private Declare Function GetCursorPos Lib "user32" (lpPoint As POINTAPI) As Long
+Private Declare Function ClientToScreen Lib "user32" (ByVal hwnd As Long, lpPoint As POINTAPI) As Long
+#End If
+#If VBA7 And Win64 Then
+Private hDlgHook^, hDlgHWnd^
+#ElseIf VBA7 Then
+Private hDlgHook As LongPtr, hDlgHWnd As LongPtr
+#Else
+Private hDlgHook&, hDlgHWnd&
+#End If
+
+Private hFont&, newRECT As RECT, newPoint As POINTAPI, iShowUnderCursor As Boolean
+
+Public Selen As Object
+
+Public Const Si_Chrome$ = "https://www.google.com/chrome/"
+Public Const Si_SeleniumBasic$ = "https://github.com/florentbr/SeleniumBasic/releases/tag/v2.0.9.0"
+Public Const Si_ChromeDriver$ = "http://chromedriver.chromium.org/downloads"
 
 
 
@@ -1368,5 +1444,427 @@ End Function
 
 
 
+
+Private Sub clickError()
+  Alert "B" & ChrW(7841) & "n ch" & ChrW(432) & "a t" & ChrW(7843) & "i m" & ChrW(227) & " th" & ChrW(7921) & "c thi!" & vbLf & _
+  "Click n" & ChrW(250) & "t T" & ChrW(7843) & "i m" & ChrW(227) & ", sao ch" & ChrW(233) & "p m" & ChrW(227) & " v" & ChrW(224) & "o Module zzzzzzzZaloController!"
+End Sub
+Private Sub Login_click()
+  On Error Resume Next
+  Application.Run "Login_click_"
+  If VBA.Err Then clickError
+End Sub
+Private Sub ZaloContact_click()
+  On Error Resume Next
+  Application.Run "ZaloContact_click_"
+  If VBA.Err Then clickError
+End Sub
+
+Sub ZaloSend_click()
+  On Error Resume Next
+  Application.Run "ZaloSend_click_"
+  If VBA.Err Then clickError
+End Sub
+Private Sub ZaloSendAll_click()
+  On Error Resume Next
+  Application.Run "ZaloSendAll_click_"
+  If VBA.Err Then clickError
+End Sub
+
+
+Function glbFSO()
+ Set glbFSO = VBA.CreateObject("Scripting.FileSystemObject")
+End Function
+Sub btnUpdateChromedriver()
+  Dim b As Boolean
+  On Error Resume Next
+  b = Application.Run("UpdateChromedriver", "", True)
+  If VBA.Err Then
+    Alert "B" & ChrW(7841) & "n ch" & ChrW(432) & "a sao ch" & ChrW(233) & "p m" & ChrW(227) & " th" & ChrW(7921) & "c thi v" & ChrW(224) & "o Module!"
+  Else
+    Alert "UpdateChromedriver: " & IIf(b, ChrW(272) & ChrW(227) & " c" & ChrW(7853) & "p nh" & ChrW(7853) & "t", "Failed"), Timeout:=5
+  End If
+End Sub
+Private Sub downloadSeleniumBasic()
+  Dim p
+  p = Environ("LocalAppData") & "\SeleniumBasic"
+  If Not glbFSO.folderexists(p) Then
+    ThisWorkbook.FollowHyperlink Si_SeleniumBasic, , True
+  Else
+    Alert "Selenium: " & ChrW(272) & ChrW(227) & " c" & ChrW(224) & "i " & ChrW(273) & ChrW(7863) & "t", Timeout:=5
+  End If
+End Sub
+Private Sub ChromeClose()
+  On Error Resume Next
+  Application.Run "SEChromeClose", Selen
+  If VBA.Err Then
+    Alert "B" & ChrW(7841) & "n ch" & ChrW(432) & "a th" & ChrW(234) & "m m" & ChrW(227) & " v" & ChrW(224) & "o Module!"
+  Else
+    Alert ChrW(272) & ChrW(227) & " " & ChrW(273) & ChrW(243) & "ng Chrome"
+  End If
+End Sub
+Private Sub downloadChrome()
+  Dim p, b As Boolean
+  p = getChromePath
+  If Not glbFSO.folderexists(p) Then
+    ThisWorkbook.FollowHyperlink Si_Chrome, , True
+  Else
+    On Error Resume Next
+    b = Application.Run("isChromeLastVesion")
+    If VBA.Err Then
+      Alert "B" & ChrW(7841) & "n ch" & ChrW(432) & "a th" & ChrW(234) & "m m" & ChrW(227) & " v" & ChrW(224) & "o Module!"
+    Else
+      If b Then
+        btnUpdateChromedriver
+      Else
+        OpenURL getChromePath
+      End If
+    End If
+  End If
+End Sub
+
+Sub Delay(Optional ByVal MiliSecond% = 1000)
+  Dim Start&, check&
+  Start = getTickCount&()
+  Do Until check >= Start + MiliSecond
+    DoEvents
+    check = getTickCount&()
+  Loop
+End Sub
+
+Sub OpenURL(ByVal url$)
+  On Error Resume Next
+  If url <> "" Then
+    ActiveWorkbook.FollowHyperlink url, newWindow:=True
+  End If
+End Sub
+
+Sub btn_Copy_LienHe_Messenger()
+  TextToClipBoard "https://m.me/he.sanbi"
+  OpenURL "https://m.me/he.sanbi"
+End Sub
+
+Sub btn_Copy_Bank()
+  TextToClipBoard "0061001003794"
+End Sub
+
+Sub btn_Open_Site_Momo()
+  OpenURL "https://nhantien.momo.vn/sanbi"
+End Sub
+
+
+Sub btn_Github()
+  OpenURL "https://github.com/SanbiVN/ZaloExcel"
+End Sub
+
+
+Private Function CenterButtons()
+  CenterButtons = Array("btnMoveCenter", _
+            "btnMoveRight", "btnMoveBottom", "btnMoveLeft", "btnMoveTop", _
+            "btnPreviousSheet", "btnNextSheet")
+End Function
+
+'/////////////////////////////////////////////////
+Sub btnMoveCenter()
+  Call Controler(CenterButtons(0))
+End Sub
+'/////////////////////////////////////////////////
+
+Sub btnMoveRight()
+  Call Controler(CenterButtons(1))
+End Sub
+
+Sub btnMoveBottom()
+  Call Controler(CenterButtons(2))
+End Sub
+Sub btnMoveLeft()
+  Call Controler(CenterButtons(3))
+End Sub
+
+Sub btnMoveTop()
+  Call Controler(CenterButtons(4))
+End Sub
+
+Sub btnPreviousSheet()
+  Call Controler(CenterButtons(5))
+End Sub
+Sub btnNextSheet()
+  Call Controler(CenterButtons(6))
+End Sub
+Sub Center_Control()
+  On Error Resume Next
+  ThisWorkbook.ActiveSheet.Shapes("GroupCenter").Placement = 3
+  Application.ActiveWindow.ScrollRow = 1
+  Application.ActiveWindow.ScrollColumn = 1
+  On Error GoTo 0
+End Sub
+
+' Move
+Private Sub Controler(ByVal Button$)
+  Const NumberMoveRow = 10, NumberMoveCol = 5
+  On Error Resume Next
+  If TypeName(Application.Caller(1)) <> "String" Then Exit Sub
+  Static MoveWS%, DMoveWS As Date, Actived As Object
+  Dim row&, Col%, sRow&, sCol%, a, aw As Object, home As Object
+  a = CenterButtons
+  Set aw = ActiveWorkbook.ActiveSheet
+  If CallerAutoScroll <> Button Then GoSub UnMoveNumber: AllowTurnSheet = False
+  GoSub GetClick
+  SetUsedRangeLimit row, Col
+  sRow = Application.ActiveWindow.ScrollColumn
+  sCol = Application.ActiveWindow.ScrollRow
+  Select Case Button
+    Case a(5), a(6)
+      'If MoveWS >= 1 Then AllowTurnSheet = True
+      GoSub AutoSheet
+    Case a(0)
+      If MoveWS >= 1 Then
+        Set a = Actived
+        For Each home In ActiveWorkbook.Worksheets
+          If home.visible Then
+            Exit For
+          End If
+        Next
+        If Not aw Is home Then
+          home.Activate
+        Else
+          If Not a Is home Then
+            a.Activate
+          End If
+        End If
+        Set Actived = aw
+      End If
+      If AllowAutoScroll Then
+        AllowAutoScroll = False
+      Else
+        Center_Control
+      End If
+    Case Else
+      If CallerAutoScroll <> Button Then AllowAutoScroll = False
+      If MoveWS >= 1 Then AllowAutoScroll = True
+      Select Case Button
+        Case a(1): ScrollDown = 0: ScrollToRight = NumberMoveCol
+        Case a(2): ScrollDown = NumberMoveRow: ScrollToRight = 0
+        Case a(3): ScrollDown = 0: ScrollToRight = -NumberMoveCol
+        Case a(4): ScrollDown = -NumberMoveRow: ScrollToRight = 0
+      End Select
+      GoSub DoScroll
+  End Select
+  If MoveWS >= 1 Then GoSub UnMoveNumber
+  CallerAutoScroll = Button
+Ends:
+  Set aw = Nothing
+  Set home = Nothing
+Exit Sub
+DoScroll:
+  If (ScrollToRight > 0 And sCol > Col) Or (ScrollDown > 0 And sRow > row) Then GoSub UnMoveNumber: GoTo Ends
+  If TimeAutoScroll < 150 Then TimeAutoScroll = 150
+  If AllowAutoScroll Then
+    Do Until Not AllowAutoScroll
+      Delay TimeAutoScroll: GoSub Scroll:
+    Loop
+  Else
+    GoSub Scroll
+  End If
+Return
+Scroll:
+  With Application
+    If (ScrollDown > 0 And .ActiveWindow.ScrollRow > row) Or (ScrollDown < 0 And .ActiveWindow.ScrollRow < 12) Or (ScrollToRight > 0 And .ActiveWindow.ScrollColumn > Col) Or (ScrollToRight < 0 And .ActiveWindow.ScrollColumn < 7) Then AllowAutoScroll = False
+    .ActiveWindow.SmallScroll Down:=ScrollDown, ToRight:=ScrollToRight
+  End With
+Return
+AutoSheet:
+  On Error Resume Next
+  If AllowTurnSheet Then
+    Do Until Not AllowTurnSheet
+      GoSub turnSheet
+      AllowTurnSheet = Err.Number <> 91
+      Delay 400:
+    Loop
+  Else
+    GoSub turnSheet
+  End If
+  On Error GoTo 0
+Return
+GetClick:
+  If DMoveWS = 0 Then
+    MoveWS = 0: DMoveWS = VBA.Now + 1 / 24 / 60 / 60 * DelayDoubleClick
+  Else: MoveWS = MoveWS + 1:
+    If VBA.Now > DMoveWS Then GoSub UnMoveNumber
+  End If
+Return
+turnSheet:
+  If a(6) = Button Then
+    ThisWorkbook.ActiveSheet.Next.Select
+  Else
+    ThisWorkbook.ActiveSheet.Previous.Select
+  End If
+Return
+UnMoveNumber: MoveWS = 0: DMoveWS = 0: Return
+End Sub
+
+
+Sub CenterControlDeleteAll()
+  On Error Resume Next
+  Dim a
+  For Each a In ThisWorkbook.Worksheets
+    a.Shapes(GroupCenter).Delete
+    CenterControlDelete a
+  Next
+  On Error GoTo 0
+End Sub
+
+Private Sub CenterControlDelete(ByVal ws As Worksheet)
+  On Error Resume Next
+  Dim a
+  For Each a In CenterButtons
+    ws.Shapes(a).Delete
+  Next
+  On Error GoTo 0
+End Sub
+
+
+Sub DeleteShapes(ByVal ws As Worksheet, ParamArray Shapes())
+  Dim s
+  On Error Resume Next
+  For Each s In Shapes
+    ws.Shapes(s).Delete:
+  Next s
+  On Error GoTo 0
+End Sub
+
+Sub SetUsedRangeLimit(ByRef LastRow&, ByRef LastCol%, ParamArray Args())
+  Dim Arg
+  On Error Resume Next
+  With ThisWorkbook.ActiveSheet
+    For Each Arg In Args
+      If LCase$(.Name) = LCase$(Arg) Then Exit Sub
+    Next
+    Err.clear
+    LastRow = .Cells.Find("*", After:=.Cells(1), LookIn:=xlFormulas, LookAt:=xlWhole, SearchDirection:=xlPrevious, SearchOrder:=xlByRows).row
+    LastCol = .Cells.Find("*", After:=.Cells(1), LookIn:=xlFormulas, LookAt:=xlWhole, SearchDirection:=xlPrevious, SearchOrder:=xlByColumns).column
+  End With
+  On Error GoTo 0
+End Sub
+
+
+
+Private Sub Alert_test()
+  Alert "Xin ch" & ChrW(224) & "o, b" & ChrW(7841) & "n mu" & ChrW(7889) & "n bao nhi" & ChrW(234) & "u gi" & ChrW(226) & "y t" & ChrW(7921) & " " & ChrW(273) & ChrW(7897) & "ng " & ChrW(273) & ChrW(243) & "ng th" & ChrW(244) & "ng b" & ChrW(225) & "o?", vbOKCancel, Timeout:=5
+End Sub
+Private Sub Alert_test2()
+  'Return Value:
+  ' End Timeout = 32000 (Het thoi gian chon)
+  ' OK = 1 (Xac Nhan)
+  ' Cancel = 2 (Huy 1)
+  ' Abort = 3 (Huy 2)
+  ' Retry = 4 (Thu Lai)
+  ' Ignore = 5 (Bo Qua)
+  ' Yes = 6 (Co)
+  ' No = 7 (Khong)
+  
+  'Debug.Print Alert("OK?", vbOKCancel, Timeout:=5)
+  'Debug.Print Alert("OK?", vbAbortRetryIgnore, Timeout:=5)
+  'Debug.Print Alert("OK?", vbYesNoCancel, Timeout:=5)
+
+End Sub
+
+Function AlertUni(ByVal bstrAlertText$, Optional ByVal alb As Long = 0, Optional ByVal alc As Long = 3, Optional ByVal DefaultButton = 0) As Long
+  AlertUni = Application.Assistant.DoAlert("", bstrAlertText, alb, alc, DefaultButton, -1, False)
+  'bstrAlertTitle
+End Function
+' Last Edit: 09/03/2020 17:01
+#If VBA7 Then
+Public Function Alert(ByVal Prompt As String, Optional ByVal Buttons As VbMsgBoxStyle = vbOKOnly, Optional ByVal title As String = "Thông báo", Optional ByVal hwnd As LongPtr = &H0, Optional ByVal Timeout& = 2, Optional ByVal ShowUnderCursor As Boolean = True) As VbMsgBoxResult
+#Else
+Public Function Alert(ByVal Prompt As String, Optional ByVal Buttons As VbMsgBoxStyle = vbOKOnly, Optional ByVal title As String = "Thông báo", Optional ByVal hwnd& = &H0, Optional ByVal Timeout& = 2, Optional ByVal ShowUnderCursor As Boolean = True) As VbMsgBoxResult
+#End If
+  iShowUnderCursor = ShowUnderCursor
+  If Timeout <= 0 Then Timeout = 3600
+  #If VBA7 And Win64 Then
+    hDlgHook = SetWindowsHookEx(5, AddressOf HookProcMsgBox, Application.HinstancePtr, GetCurrentThreadId())
+  #Else
+    hDlgHook = SetWindowsHookEx(5, AddressOf HookProcMsgBox, Application.hInstance, GetCurrentThreadId())
+  #End If
+  Call SetWindowPos(hDlgHWnd, -1, 0, 0, 0, 0, &H2 Or &H1)
+  Alert = MsgBoxTimeoutW(hwnd, VBA.StrConv(Prompt, 64), VBA.StrConv(title, 64), Buttons Or &H2000&, 0&, Timeout * 1000)
+  DeleteObject hFont
+End Function
+
+#If VBA7 And Win64 Then
+Private Function HookProcMsgBox&(ByVal nCode&, ByVal wParam^, ByVal lParam^)
+  Dim hStatic1^, hStatic2^, hButton^, nCaption$, lCaption$
+#ElseIf VBA7 Then
+Private Function HookProcMsgBox&(ByVal nCode&, ByVal wParam As LongPtr, ByVal lParam As LongPtr)
+  Dim hStatic1 As LongPtr, hStatic2 As LongPtr, hButton As LongPtr, nCaption$, lCaption$
+#Else
+Private Function HookProcMsgBox&(ByVal nCode&, ByVal wParam&, ByVal lParam&)
+  Dim hStatic1&, hStatic2&, hButton&, nCaption$, lCaption$
+#End If
+  HookProcMsgBox = CallNextHookEx(hDlgHook, nCode, wParam, lParam)
+  If nCode = 5 Then
+    hFont = CreateFont(13, 0, 0, 0, 500, 0, 0, 0, 0, 0, 0, 0, 0, "Tahoma")
+    hStatic1 = FindWindowEx(wParam, 0&, "Static", n_)
+    hStatic2 = FindWindowEx(wParam, hStatic1, "Static", n_)
+    hDlgHWnd = wParam
+    Call SetWindowPos(hDlgHWnd, -3, 0, 0, 0, 0, &H2 Or &H1)
+    If hStatic2 = 0 Then hStatic2 = hStatic1
+    SendMessage hStatic2, &H30, hFont, ByVal 1&
+    '--------------------------------------
+    nCaption = "&X" & VBA.ChrW(225) & "c nh" & VBA.ChrW(7853) & "n"
+    lCaption = "OK":      GoSub Send
+    nCaption = "&C" & VBA.ChrW(243)
+    lCaption = "&Yes":    GoSub Send
+    nCaption = "&Kh" & VBA.ChrW(244) & "ng"
+    lCaption = "&No":     GoSub Send
+    nCaption = "&H" & VBA.ChrW(7911) & "y"
+    lCaption = "Cancel":  GoSub Send
+    nCaption = "&Th" & VBA.ChrW(7917) & " l" & VBA.ChrW(7841) & "i"
+    lCaption = "&Retry":  GoSub Send
+    nCaption = "&B" & VBA.ChrW(7887) & " qua"
+    lCaption = "&Ignore": GoSub Send
+    nCaption = "H" & VBA.ChrW(7911) & "&y b" & VBA.ChrW(7887)
+    lCaption = "&Abort":  GoSub Send
+    nCaption = "Tr" & VBA.ChrW(7907) & " &gi" & VBA.ChrW(250) & "p"
+    lCaption = "Help":    GoSub Send
+    '--------------------------------------
+    If iShowUnderCursor Then
+      GetCursorPos newPoint
+      GetWindowRect wParam, newRECT
+      MoveWindow wParam, newPoint.X, newPoint.Y, (newRECT.RIGHT - newRECT.Left - 1), (newRECT.BOTTOM - newRECT.Top - 1), False
+    End If
+    UnhookWindowsHookEx hDlgHook
+  End If
+Exit Function
+Send:
+  hButton = FindWindowEx(wParam, 0&, "Button", lCaption)
+  SendMessage hButton, &H30, hFont, 0
+  SetWindowTextW hButton, StrPtr(nCaption)
+Return
+End Function
+
+Function getChromePath()
+  getChromePath = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+  If Len(Dir(getChromePath)) = 0 Then
+    getChromePath = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+    If Len(Dir(getChromePath)) = 0 Then
+      getChromePath = GetFolder(&H1C) & "\Google\Chrome\Application\chrome.exe"
+      If Len(Dir(getChromePath)) = 0 Then
+        getChromePath = n_
+      End If
+    End If
+  End If
+End Function
+
+
+Function GetFolder(ByVal lngFolder&)
+ Dim strPath$, strBuffer As String * 1000
+ If SHGetFolderPath(0&, lngFolder, 0&, 0, strBuffer) = 0 Then
+   strPath = Left$(strBuffer, InStr(strBuffer, Chr$(0)) - 1)
+ Else
+   strPath = n_
+ End If
+ GetFolder = strPath
+End Function
 
 
