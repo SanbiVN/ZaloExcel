@@ -24,61 +24,6 @@ Private Declare Function SHGetFolderPath Lib "shell32.dll" Alias "SHGetFolderPat
 #End If
 
 
-Public Type RECT
-    Left As Long
-    Top As Long
-    RIGHT As Long
-    BOTTOM As Long
-End Type
-Public Type POINTAPI
-  X As Long
-  Y As Long
-End Type
-#If VBA7 Then
-Private Declare PtrSafe Function GetWindowRect Lib "user32" (ByVal hwnd As LongPtr, lpRect As RECT) As Long
-Private Declare PtrSafe Function SetWindowsHookEx Lib "user32" Alias "SetWindowsHookExA" (ByVal idHook As Long, ByVal lpfn As LongPtr, ByVal hmod As LongPtr, ByVal dwThreadId As Long) As Long
-Private Declare PtrSafe Function CallNextHookEx Lib "user32" (ByVal hHook As LongPtr, ByVal CodeNo As Long, ByVal wParam As LongPtr, ByVal lParam As LongPtr) As Long
-Private Declare PtrSafe Function UnhookWindowsHookEx Lib "user32" (ByVal hHook As LongPtr) As Long
-Private Declare PtrSafe Function GetCurrentThreadId Lib "kernel32" () As Long
-Public Declare PtrSafe Function FindWindowEx Lib "user32" Alias "FindWindowExA" (ByVal ParenthWnd As LongPtr, ByVal ChildHwnd As LongPtr, ByVal classname As String, ByVal Caption As String) As LongPtr
-Private Declare PtrSafe Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As LongPtr, ByVal wMsg As Long, ByVal wParam As LongPtr, lParam As Any) As Long
-Private Declare PtrSafe Function SetWindowPos Lib "user32" (ByVal hwnd As LongPtr, ByVal hWndInsertAfter As Long, ByVal X As Long, ByVal Y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
-Private Declare PtrSafe Function CreateWindowEx Lib "user32" Alias "CreateWindowExA" (ByVal dwExStyle As Long, ByVal lpClassName As String, ByVal lpWindowName As String, ByVal dwStyle As Long, ByVal X As Long, ByVal Y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hwndParent As Long, ByVal hMenu As Long, ByVal hInstance As Long, lpParam As Any) As Long
-Private Declare PtrSafe Function DeleteObject Lib "gdi32.dll" (ByVal hObject As Long) As Long
-Private Declare PtrSafe Function CreateFont Lib "gdi32" Alias "CreateFontA" (ByVal h As Long, ByVal w As Long, ByVal e As Long, ByVal o As Long, ByVal w As Long, ByVal i As Long, ByVal u As Long, ByVal s As Long, ByVal c As Long, ByVal OP As Long, ByVal cp As Long, ByVal q As Long, ByVal PAF As Long, ByVal f As String) As Long
-Private Declare PtrSafe Function SetWindowTextW Lib "user32" (ByVal hwnd As LongPtr, ByVal lpString As LongPtr) As Long
-Private Declare PtrSafe Function MsgBoxTimeoutW Lib "user32" Alias "MessageBoxTimeoutW" (ByVal hwnd As LongPtr, ByVal lpText As String, ByVal lpCaption As String, ByVal wType As VbMsgBoxStyle, ByVal wlange As Long, ByVal dwTimeout As Long) As Long
-Private Declare PtrSafe Function GetCursorPos Lib "user32" (lpPoint As POINTAPI) As Long
-Private Declare PtrSafe Function ClientToScreen Lib "user32" (ByVal hwnd As LongPtr, lpPoint As POINTAPI) As Long
-Private Declare PtrSafe Function MoveWindow Lib "user32.dll" (ByVal hwnd As LongPtr, ByVal X As Long, ByVal Y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal bRepaint As Long) As Long
-#Else
-Private Declare Function MoveWindow Lib "user32.dll" (ByVal hwnd As Long, ByVal X As Long, ByVal Y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal bRepaint As Long) As Long
-Private Declare Function GetWindowRect Lib "USER32" (ByVal hwnd As Long, lpRect As RECT) As Long
-Private Declare Function MsgBoxTimeoutW Lib "user32" Alias "MessageBoxTimeoutW" (ByVal hWnd As Long, ByVal lpText As String, ByVal lpCaption As String, ByVal wType As VbMsgBoxStyle, ByVal wlange As Long, ByVal dwTimeout As Long) As Long
-Private Declare Function SetWindowsHookEx Lib "user32" Alias "SetWindowsHookExA" ( ByVal idHook As Long, ByVal lpfn As Long, ByVal hMod As Long, ByVal dwThreadId As Long) As Long
-Private Declare Function CallNextHookEx Lib "user32" ( ByVal hHook As Long, ByVal CodeNo As Long, ByVal wParam As Long, ByVal lParam As Long) As Long
-Private Declare Function UnhookWindowsHookEx Lib "user32" ( ByVal hHook As Long) As Long
-Private Declare Function GetCurrentThreadId Lib "kernel32" () As Long
-Public Declare Function FindWindowEx Lib "user32" Alias "FindWindowExA" ( ByVal ParenthWnd As Long, ByVal ChildhWnd As Long, ByVal className As String, ByVal Caption As String) As Long
-Private Declare Function SendMessage Lib "user32" Alias "SendMessageA" ( ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
-Private Declare Function SetWindowPos Lib "user32" ( ByVal hwnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal Y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
-Private Declare Function CreateWindowEx Lib "user32" Alias "CreateWindowExA" ( ByVal dwExStyle As Long, ByVal lpClassName As String, ByVal lpWindowName As String, ByVal dwStyle As Long, ByVal x As Long, ByVal Y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hwndParent As Long, ByVal hMenu As Long, ByVal hInstance As Long, lpParam As Any) As Long
-Private Declare Function DeleteObject Lib "gdi32.dll" ( ByVal hObject As Long) As Long
-Private Declare Function CreateFont Lib "gdi32" Alias "CreateFontA" ( ByVal h As Long, ByVal W As Long, ByVal e As Long, ByVal o As Long, ByVal W As Long, ByVal i As Long, ByVal u As Long, ByVal s As Long, ByVal c As Long, ByVal OP As Long, ByVal CP As Long, ByVal q As Long, ByVal PAF As Long, ByVal f As String) As Long
-Private Declare Function SetWindowTextW Lib "user32" ( ByVal hwnd As Long, ByVal lpString As Long) As Long
-Private Declare Function GetCursorPos Lib "user32" (lpPoint As POINTAPI) As Long
-Private Declare Function ClientToScreen Lib "user32" (ByVal hwnd As Long, lpPoint As POINTAPI) As Long
-#End If
-#If VBA7 And Win64 Then
-Private hDlgHook^, hDlgHWnd^
-#ElseIf VBA7 Then
-Private hDlgHook As LongPtr, hDlgHWnd As LongPtr
-#Else
-Private hDlgHook&, hDlgHWnd&
-#End If
-
-Private hFont&, newRECT As RECT, newPoint As POINTAPI, iShowUnderCursor As Boolean
-
 Public Selen As Object
 
 Public Const Si_Chrome$ = "https://www.google.com/chrome/"
@@ -98,12 +43,9 @@ Public Const procZaloAppPlaying = "ZaloAppPlaying"
 
 
 Public Const n_ = vbNullString
-' Required data structures
-
-' Clipboard Manager Functions
 
 #If Mac Then
-'
+
 #Else
   #If VBA7 Then
     Private Declare PtrSafe Function GlobalUnlock Lib "kernel32" (ByVal hMem As LongPtr) As LongPtr
@@ -131,19 +73,16 @@ Public Const n_ = vbNullString
 #If VBA7 Then
   Private Declare PtrSafe Function GetClipboardData Lib "user32" (ByVal wFormat As Long) As Long
   Private Declare PtrSafe Function IsClipboardFormatAvailable Lib "user32" (ByVal wFormat As Long) As Long
-  ' Other required Win32 APIs
   Private Declare PtrSafe Function DragQueryFile Lib "shell32.dll" Alias "DragQueryFileA" (ByVal hDrop As Long, ByVal UINT As Long, ByVal lpStr As String, ByVal ch As Long) As Long
   Private Declare PtrSafe Function DragQueryPoint Lib "shell32.dll" (ByVal hDrop As Long, lpPoint As POINTAPI) As Long
   Private Declare PtrSafe Function GlobalFree Lib "kernel32" (ByVal hMem As LongPtr) As LongPtr
 #Else
   Private Declare Function GetClipboardData Lib "user32" (ByVal wFormat As Long) As Long
   Private Declare Function IsClipboardFormatAvailable Lib "user32" (ByVal wFormat As Long) As Long
-  ' Other required Win32 APIs
   Private Declare Function DragQueryFile Lib "shell32.dll" Alias "DragQueryFileA" (ByVal hDrop As Long, ByVal UINT As Long, ByVal lpStr As String, ByVal ch As Long) As Long
   Private Declare Function DragQueryPoint Lib "shell32.dll" (ByVal hDrop As Long, lpPoint As POINTAPI) As Long
   Private Declare Function GlobalFree Lib "kernel32" (ByVal hMem As Long) As Long
 #End If
-' Predefined Clipboard Formats
 Private Const CF_TEXT = 1
 Private Const CF_BITMAP = 2
 Private Const CF_METAFILEPICT = 3
@@ -161,7 +100,6 @@ Private Const CF_ENHMETAFILE = 14
 Private Const CF_HDROP = 15
 Private Const CF_LOCALE = 16
 Private Const CF_MAX = 17
-' New shell-oriented clipboard formats
 Private Const CFSTR_SHELLIDLIST As String = "Shell IDList Array"
 Private Const CFSTR_SHELLIDLISTOFFSET As String = "Shell Object Offsets"
 Private Const CFSTR_NETRESOURCES As String = "Net Resource"
@@ -170,7 +108,7 @@ Private Const CFSTR_FILECONTENTS As String = "FileContents"
 Private Const CFSTR_FILENAME As String = "FileName"
 Private Const CFSTR_PRINTERGROUP As String = "PrinterFriendlyName"
 Private Const CFSTR_FILENAMEMAP As String = "FileNameMap"
-' Global Memory Flags
+
 Private Const GMEM_FIXED = &H0
 Private Const GMEM_MOVEABLE = &H2
 Private Const GMEM_NOCOMPACT = &H10
@@ -195,7 +133,6 @@ Private Type DROPFILES
 End Type
 
 #If VBA7 Then
-Private Declare PtrSafe Function URLDownloadToFile Lib "urlmon" Alias "URLDownloadToFileA" (ByVal pCaller As Long, ByVal szURL As String, ByVal szFileName As String, ByVal dwReserved As Long, ByVal lpfnCB As Long) As Long
 Public Declare PtrSafe Function GetForegroundWindow Lib "user32" () As LongPtr
 Private Declare PtrSafe Function GetWindowThreadProcessId Lib "user32" (ByVal hwnd As LongPtr, lpdwProcessId As Long) As Long
 Private Declare PtrSafe Function AttachThreadInput Lib "user32" (ByVal idAttach As Long, ByVal idAttachTo As Long, ByVal fAttach As Long) As Long
@@ -206,7 +143,6 @@ Private Declare PtrSafe Function FindWindow Lib "user32" Alias "FindWindowA" (By
 Private Declare PtrSafe Function GetParent Lib "user32" (ByVal hwnd As LongPtr) As Long
 Private Declare PtrSafe Function GetWindow Lib "user32" (ByVal hwnd As LongPtr, ByVal wCmd As Long) As Long
 #Else
-Private Declare Function URLDownloadToFile Lib "urlmon" Alias "URLDownloadToFileA" (ByVal pCaller As Long, ByVal szURL As String, ByVal szFileName As String, ByVal dwReserved As Long, ByVal lpfnCB As Long) As Long
 Public Declare Function GetForegroundWindow Lib "user32" () As Long
 Private Declare Function GetWindowThreadProcessId Lib "USER32" (ByVal hwnd As Long, lpdwProcessId As Long) As Long
 Private Declare Function AttachThreadInput Lib "USER32" (ByVal idAttach As Long, ByVal idAttachTo As Long, ByVal fAttach As Long) As Long
@@ -398,7 +334,6 @@ Function shZaloExcel() As Worksheet
   On Error Resume Next
   Set shZaloExcel = ThisWorkbook.Worksheets("Zalo Excel")
 End Function
-'//'//'//'//'//'//'//'//'//'//'//'//'//'//'//
 
 Public Function ZaloAppFriendSentMessenge(Id$, Messenge$) As Boolean
   Dim oj, o, cs
@@ -412,14 +347,14 @@ Private Function ClipboardTitle()
   ClipboardTitle = "[B" & ChrW(7897) & " nh" & ChrW(7899) & " t" & ChrW(7841) & "m]"
 End Function
 Private Sub ZaloAppSearchAndSend_test()
-  'ZaloAppSearchAndSend "0934847608"
+  ZaloAppSearchAndSend "0934847608"
   ZaloSendAll_click_
   Exit Sub
   If Not ZaloAppGotoContact Then
     Exit Sub
   End If
   Debug.Print ZaloAppSearchAndSend(". M" & ChrW(7865), "hello")
-  'Debug.Print ZaloAppSearchAndSend("Cloud c" & ChrW(7911) & "a t" & ChrW(244) & "i", "hello")
+  Debug.Print ZaloAppSearchAndSend("Cloud c" & ChrW(7911) & "a t" & ChrW(244) & "i", "hello")
 End Sub
 Public Function ZaloAppSearchAndSend(Search$, Optional message$, Optional files, Optional oversend As Boolean, Optional recipient$, Optional status$, Optional time As Date) As Boolean
   time = 0: status = "": recipient = ""
@@ -456,7 +391,7 @@ Public Function ZaloAppSearchAndSend(Search$, Optional message$, Optional files,
     n = o.FindElementByXPath(".//*[contains(@class, 'conv-item-title__name')]", 1500, False).Attribute("innerText")
     n = Replace(n, Chr(160), " ")
     If s = Search Or "0" & s = Search Or "84" & s = Search Or n = Search Then
-      'url = o.FindElementByClass("zl-avatar__photo", 1500, False).Attribute("src")
+      url = o.FindElementByClass("zl-avatar__photo", 1500, False).Attribute("src")
       recipient = n
       o.Click
       GoSub header
@@ -547,14 +482,14 @@ sent:
       GoSub mutilple
       GoSub release
     End If
-     '
+
   End If
 
   If message <> Empty Then
     o3.FindElementById("richInput", 1500, False).SendKeys message
   End If
 
-  o3.FindElementById("richInput", 1500, False).SendKeys SelenKeys.Return
+  o3.FindElementById("richInput", 1500, False).SendKeys SelenKeys.return
   status = "ok"
   time = VBA.Now
   ZaloAppSearchAndSend = True
@@ -651,7 +586,7 @@ Function SEConnectChrome(Optional ByRef driver As Object, Optional ByRef boolSta
     If Not boolStart And Not startIfExists Then GoTo Ends
     Dim CmdLn$
     CmdLn = IIf(Port > 0, "--remote-debugging-port=" & Port, "") & IIf(headless, " --headless", "") & IIf(UserDataDir <> n_, " --user-data-dir=""" & UserDataDir & """", "") & " --lang=vi" & IIf(url = "", "", IIf(boolApp, " --app=", " ")) & """" & url & """" & IIf(maximize And visible <> 0, " --start-maximized", "") & IIf(position <> n_ And Not maximize, " --window-position=" & position, "") & IIf(screen <> n_ And Not maximize, " --window-size=" & screen, "") & IIf(disableGPU, " --disable-gpu", "") & IIf(PrivateMode, " --incognito", "") & IIf(popupBlocking, "", " --disable-popup-blocking")
-    'Shell "cmd.exe /s /k start """" """ & chromePath & """" & CmdLn, vbHide
+    Shell "cmd.exe /s /k start """" """ & chromePath & """" & CmdLn, vbHide
     Shell """" & chromePath & """" & CmdLn, vbHide
     Do Until isBrowserOpen:
       GoSub CheckCR:
@@ -661,14 +596,13 @@ Function SEConnectChrome(Optional ByRef driver As Object, Optional ByRef boolSta
     Loop
   End If
   If driver Is Nothing Then
-    'Set Driver = New selenium.ChromeDriver
     If isBrowserOpen Then
       Set driver = VBA.CreateObject("selenium.ChromeDriver")
       driver.SetCapability "debuggerAddress", "127.0.0.1:" & Port
       driver.Start "chrome"
-  '    Driver.Timeouts.ImplicitWait = 5000
-  '    Driver.Timeouts.PageLoad = 5000
-  '    Driver.Timeouts.Server = 10000
+      driver.Timeouts.ImplicitWait = 5000
+      driver.Timeouts.PageLoad = 5000
+      driver.Timeouts.Server = 10000
     End If
   End If
   GoSub checkUrl
@@ -828,7 +762,7 @@ Download:
 On Error Resume Next
   ChromeDriverCloseAll
   eURL = url$ & tmp & "/chromedriver_win32.zip"
-  If URLDownloadToFile(0, eURL, temp & ZIP, 0, 0) = 0 Then
+  If ToFile(eURL, temp & ZIP) Then
     GoSub Extract
     Call VBA.SaveSetting("Chromedriver", "Update", "Last", tmp)
   End If
@@ -875,7 +809,20 @@ Sub ChromeDriverCloseAll()
     p.Terminate
   Next
 End Sub
-
+Function ToFile(ByVal szURL As String, ByVal szFileName As String) As Boolean
+  Dim h
+  Set h = glbXHR
+  h.Open "GET", szURL, False: h.Send
+  If h.status <> 200 Then Exit Function
+  With VBA.CreateObject("ADODB.Stream")
+    .Open
+    .Type = 1
+    .Write h.responseBody
+    .SaveToFile szFileName, 2
+    .Close
+  End With
+  ToFile = True
+End Function
 
 Function SwitchIFrame(ByVal IFrame, ByVal driver As Object, Optional ByVal Timeout% = -1, Optional ByVal hRaise As Boolean = True) As Boolean
   On Error Resume Next
@@ -950,7 +897,7 @@ Function BringWindowToFront(ByVal hwnd As Long) As Boolean
     nRet = SetForegroundWindow(hwnd)
     If IsIconic(hwnd) Then
       Call ShowWindow(hwnd, 9) ' SW_RESTORE)
-      'Call ShowWindow(hwnd, 5) 'SW_SHOW)
+      Call ShowWindow(hwnd, 5) 'SW_SHOW)
     Else
       Call ShowWindow(hwnd, 1) 'SW_SHOW 5)
     End If
@@ -979,14 +926,6 @@ Public Function GetZaloHandle() As Long
 #End If
   Dim p
   GetZaloHandle = FindWindowEx(FindWindow("Chrome_WidgetWin_1", "Zalo"), 0&, "Chrome_RenderWidgetHostHWND", "Chrome Legacy Window")
-
-'  For Each p In VBA.GetObject("winmgmts:\\.\root\CIMV2") _
-'  .ExecQuery("SELECT * FROM Win32_Process WHERE Name = ""Zalo.exe""", , 48)
-'    GetZaloHandleByProcessID = InstanceToWnd(p.Processid, "Zalo", "Chrome_WidgetWin_1")
-'    If GetZaloHandleByProcessID > 0 Then
-'      Exit For
-'    End If
-'  Next
 End Function
 #If VBA7 And Win64 Then
 Function InstanceToWnd(ByVal target_pid As Long, Optional ByVal title$, Optional ByVal class$) As LongPtr
@@ -1028,7 +967,7 @@ Public Function ZaloAppGotoContact() As Boolean
     End If
   Next
 End Function
-'
+
 
 Public Function ZaloAppLogin() As Boolean
   If Not Selen Is Nothing Then
@@ -1046,8 +985,8 @@ Public Function ZaloAppLogin() As Boolean
       ZaloAppLogin = True
     End If
   End If
-'    Selen.Window.SetPosition 1700, 0
-'    Selen.Window.SetSize 300, 1060
+    Selen.Window.SetPosition 1700, 0
+    Selen.Window.SetSize 300, 1060
 End Function
 
 Sub ClipboardText()
@@ -1065,7 +1004,7 @@ Sub PickObjects_test()
   PickObjects 1
 End Sub
 Sub PickObjects(Optional ByVal style% = 0)
-  'On Error GoTo E
+  On Error GoTo e
   Dim k&, a, ws, ws2, sp1, sp2, o, o2, r, rg, rg1, rg2, rg3, rg4, s$, cap1$, cap2$
   Dim os As Boolean, nlist$
   Static list$, style_%
@@ -1271,30 +1210,24 @@ Public Function ClipboardCopyFiles(files() As String) As Boolean
   Dim lpGlobal As Long
   #End If
   Dim i As Long
-  'Open and clear existing crud off clipboard.
+
   If OpenClipboard(0&) Then
     Call EmptyClipboard
-    'Build double-null terminated list of files.
     For i = LBound(files) To UBound(files)
       data = data & files(i) & vbNullChar
     Next
     data = data & vbNullChar
-    'Allocate and get pointer to global memory,
-    'then copy file list to it.
     hGlobal = GlobalAlloc(GHND, Len(df) + Len(data))
     If hGlobal Then
       lpGlobal = GlobalLock(hGlobal)
-      'Build DROPFILES structure in global memory.
       df.pFiles = Len(df)
       Call CopyMem(ByVal lpGlobal, df, Len(df))
       Call CopyMem(ByVal (lpGlobal + Len(df)), ByVal data, Len(data))
       Call GlobalUnlock(hGlobal)
-      'Copy data to clipboard, and return success.
       If SetClipboardData(CF_HDROP, hGlobal) Then
         ClipboardCopyFiles = True
       End If
     End If
-    'Clean up
     Call CloseClipboard
   End If
 End Function
@@ -1306,24 +1239,18 @@ Public Function ClipboardPasteFiles(files() As String) As Long
   Dim filename As String
   Dim pt As POINTAPI
   Const MAX_PATH As Long = 260
-  'Insure desired format is there, and open clipboard.
   If IsClipboardFormatAvailable(CF_HDROP) Then
     If OpenClipboard(0&) Then
-      'Get handle to Dropped Filelist data, and number of files.
       hDrop = GetClipboardData(CF_HDROP)
       nFiles = DragQueryFile(hDrop, -1&, "", 0)
-      'Allocate space for return and working variables.
       ReDim files(0 To nFiles - 1) As String
       filename = Space(MAX_PATH)
-      'Retrieve each filename in Dropped Filelist.
       For i = 0 To nFiles - 1
         Call DragQueryFile(hDrop, i, filename, Len(filename))
         files(i) = TrimNull(filename)
       Next
-      'Clean up
       Call CloseClipboard
     End If
-    'Assign return value equal to number of files dropped.
     ClipboardPasteFiles = nFiles
   End If
 End Function
@@ -1354,33 +1281,24 @@ Const CF_MAX = 17
   Dim filename As String
   Dim pt As POINTAPI
   Const MAX_PATH As Long = 260
-  'Insure desired format is there, and open clipboard.
   If IsClipboardFormatAvailable(CF_HDROP) Then
     If OpenClipboard(0&) Then
-      'Get handle to Dropped Filelist data, and number of files.
       hDrop = GetClipboardData(CF_HDROP)
       nFiles = DragQueryFile(hDrop, -1&, "", 0)
-      'Allocate space for return and working variables.
       ReDim files(0 To nFiles - 1) As String
       filename = Space(MAX_PATH)
-      'Retrieve each filename in Dropped Filelist.
       For i = 0 To nFiles - 1
         Call DragQueryFile(hDrop, i, filename, Len(filename))
         files(i) = TrimNull(filename)
       Next
-      'Clean up
       Call CloseClipboard
     End If
-    'Assign return value equal to number of files dropped.
     ClipboardPasteReletang = nFiles
   End If
 End Function
 
-
 Private Function TrimNull(ByVal sTmp As String) As String
   Dim nNul As Long
-  'Truncate input sTmpg at first Null.
-  'If no Nulls, perform ordinary Trim.
   nNul = InStr(sTmp, vbNullChar)
   Select Case nNul
   Case Is > 1
@@ -1391,64 +1309,12 @@ Private Function TrimNull(ByVal sTmp As String) As String
     TrimNull = Trim(sTmp)
   End Select
 End Function
-Sub Main________()
-Dim afile(0) As String
-afile(0) = "D:\Data\Site\index.html" 'The file actually exists
-MsgBox ClipboardCopyFiles(afile)
-End Sub
-
-
-
-Function DialogExplorer(Optional FolderPath$, _
-                        Optional sDesc$ = "All File", _
-                        Optional sFilter$ = "*.*", _
-                        Optional title$ = "Open", _
-                        Optional FileDialog& = 1, _
-                        Optional InitialView& = 2, _
-                        Optional ButtonName$ = "&Select", _
-                        Optional MultiSelect As Boolean = 0) As Variant
-  DialogExplorer = ""
-  Dim arr(), k, it
-  With Application.FileDialog(FileDialog) '1|4'
-    If ButtonName <> vbNullString Then .ButtonName = ButtonName
-'    If FolderPath <> vbNullString Then
-'      .InitialFileName = FolderPath
-'    Else
-'      .InitialFileName = Application.DefaultFilePath
-'    End If
-    If FileDialog = 1 Then
-      .Filters.clear
-      .Filters.Add sDesc, sFilter
-      If sDesc$ <> "All File" Then .Filters.Add "All File", "*.*"
-    End If
-    If title <> vbNullString Then .title = title
-    .InitialView = InitialView 'msoFileDialogViewDetails'
-    .AllowMultiSelect = IIf(FileDialog = 4, False, MultiSelect)
-    If .Show Then
-      If FileDialog = 4 Then
-        DialogExplorer = Array(.SelectedItems(1))
-      Else
-        For Each it In .SelectedItems
-          k = k + 1
-          ReDim Preserve arr(1 To k): arr(k) = it
-        Next it
-        DialogExplorer = arr
-      End If
-    End If
-    If FileDialog = 1 Then .Filters.clear
-  End With
-End Function
-
-
-
-
-
-
 
 Private Sub clickError()
   Alert "B" & ChrW(7841) & "n ch" & ChrW(432) & "a t" & ChrW(7843) & "i m" & ChrW(227) & " th" & ChrW(7921) & "c thi!" & vbLf & _
   "Click n" & ChrW(250) & "t T" & ChrW(7843) & "i m" & ChrW(227) & ", sao ch" & ChrW(233) & "p m" & ChrW(227) & " v" & ChrW(224) & "o Module zzzzzzzZaloController!"
 End Sub
+
 Private Sub Login_click()
   On Error Resume Next
   Application.Run "Login_click_"
@@ -1532,316 +1398,7 @@ Sub Delay(Optional ByVal MiliSecond% = 1000)
   Loop
 End Sub
 
-Sub OpenURL(ByVal url$)
-  On Error Resume Next
-  If url <> "" Then
-    ActiveWorkbook.FollowHyperlink url, newWindow:=True
-  End If
-End Sub
 
-Sub btn_Copy_LienHe_Messenger()
-  TextToClipBoard "https://m.me/he.sanbi"
-  OpenURL "https://m.me/he.sanbi"
-End Sub
-
-Sub btn_Copy_Bank()
-  TextToClipBoard "0061001003794"
-End Sub
-
-Sub btn_Open_Site_Momo()
-  OpenURL "https://nhantien.momo.vn/sanbi"
-End Sub
-
-
-Sub btn_Github()
-  OpenURL "https://github.com/SanbiVN/ZaloExcel"
-End Sub
-
-
-Private Function CenterButtons()
-  CenterButtons = Array("btnMoveCenter", _
-            "btnMoveRight", "btnMoveBottom", "btnMoveLeft", "btnMoveTop", _
-            "btnPreviousSheet", "btnNextSheet")
-End Function
-
-'/////////////////////////////////////////////////
-Sub btnMoveCenter()
-  Call Controler(CenterButtons(0))
-End Sub
-'/////////////////////////////////////////////////
-
-Sub btnMoveRight()
-  Call Controler(CenterButtons(1))
-End Sub
-
-Sub btnMoveBottom()
-  Call Controler(CenterButtons(2))
-End Sub
-Sub btnMoveLeft()
-  Call Controler(CenterButtons(3))
-End Sub
-
-Sub btnMoveTop()
-  Call Controler(CenterButtons(4))
-End Sub
-
-Sub btnPreviousSheet()
-  Call Controler(CenterButtons(5))
-End Sub
-Sub btnNextSheet()
-  Call Controler(CenterButtons(6))
-End Sub
-Sub Center_Control()
-  On Error Resume Next
-  ThisWorkbook.ActiveSheet.Shapes("GroupCenter").Placement = 3
-  Application.ActiveWindow.ScrollRow = 1
-  Application.ActiveWindow.ScrollColumn = 1
-  On Error GoTo 0
-End Sub
-
-' Move
-Private Sub Controler(ByVal Button$)
-  Const NumberMoveRow = 10, NumberMoveCol = 5
-  On Error Resume Next
-  If TypeName(Application.Caller(1)) <> "String" Then Exit Sub
-  Static MoveWS%, DMoveWS As Date, Actived As Object
-  Dim row&, Col%, sRow&, sCol%, a, aw As Object, home As Object
-  a = CenterButtons
-  Set aw = ActiveWorkbook.ActiveSheet
-  If CallerAutoScroll <> Button Then GoSub UnMoveNumber: AllowTurnSheet = False
-  GoSub GetClick
-  SetUsedRangeLimit row, Col
-  sRow = Application.ActiveWindow.ScrollColumn
-  sCol = Application.ActiveWindow.ScrollRow
-  Select Case Button
-    Case a(5), a(6)
-      'If MoveWS >= 1 Then AllowTurnSheet = True
-      GoSub AutoSheet
-    Case a(0)
-      If MoveWS >= 1 Then
-        Set a = Actived
-        For Each home In ActiveWorkbook.Worksheets
-          If home.visible Then
-            Exit For
-          End If
-        Next
-        If Not aw Is home Then
-          home.Activate
-        Else
-          If Not a Is home Then
-            a.Activate
-          End If
-        End If
-        Set Actived = aw
-      End If
-      If AllowAutoScroll Then
-        AllowAutoScroll = False
-      Else
-        Center_Control
-      End If
-    Case Else
-      If CallerAutoScroll <> Button Then AllowAutoScroll = False
-      If MoveWS >= 1 Then AllowAutoScroll = True
-      Select Case Button
-        Case a(1): ScrollDown = 0: ScrollToRight = NumberMoveCol
-        Case a(2): ScrollDown = NumberMoveRow: ScrollToRight = 0
-        Case a(3): ScrollDown = 0: ScrollToRight = -NumberMoveCol
-        Case a(4): ScrollDown = -NumberMoveRow: ScrollToRight = 0
-      End Select
-      GoSub DoScroll
-  End Select
-  If MoveWS >= 1 Then GoSub UnMoveNumber
-  CallerAutoScroll = Button
-Ends:
-  Set aw = Nothing
-  Set home = Nothing
-Exit Sub
-DoScroll:
-  If (ScrollToRight > 0 And sCol > Col) Or (ScrollDown > 0 And sRow > row) Then GoSub UnMoveNumber: GoTo Ends
-  If TimeAutoScroll < 150 Then TimeAutoScroll = 150
-  If AllowAutoScroll Then
-    Do Until Not AllowAutoScroll
-      Delay TimeAutoScroll: GoSub Scroll:
-    Loop
-  Else
-    GoSub Scroll
-  End If
-Return
-Scroll:
-  With Application
-    If (ScrollDown > 0 And .ActiveWindow.ScrollRow > row) Or (ScrollDown < 0 And .ActiveWindow.ScrollRow < 12) Or (ScrollToRight > 0 And .ActiveWindow.ScrollColumn > Col) Or (ScrollToRight < 0 And .ActiveWindow.ScrollColumn < 7) Then AllowAutoScroll = False
-    .ActiveWindow.SmallScroll Down:=ScrollDown, ToRight:=ScrollToRight
-  End With
-Return
-AutoSheet:
-  On Error Resume Next
-  If AllowTurnSheet Then
-    Do Until Not AllowTurnSheet
-      GoSub turnSheet
-      AllowTurnSheet = Err.Number <> 91
-      Delay 400:
-    Loop
-  Else
-    GoSub turnSheet
-  End If
-  On Error GoTo 0
-Return
-GetClick:
-  If DMoveWS = 0 Then
-    MoveWS = 0: DMoveWS = VBA.Now + 1 / 24 / 60 / 60 * DelayDoubleClick
-  Else: MoveWS = MoveWS + 1:
-    If VBA.Now > DMoveWS Then GoSub UnMoveNumber
-  End If
-Return
-turnSheet:
-  If a(6) = Button Then
-    ThisWorkbook.ActiveSheet.Next.Select
-  Else
-    ThisWorkbook.ActiveSheet.Previous.Select
-  End If
-Return
-UnMoveNumber: MoveWS = 0: DMoveWS = 0: Return
-End Sub
-
-
-Sub CenterControlDeleteAll()
-  On Error Resume Next
-  Dim a
-  For Each a In ThisWorkbook.Worksheets
-    a.Shapes(GroupCenter).Delete
-    CenterControlDelete a
-  Next
-  On Error GoTo 0
-End Sub
-
-Private Sub CenterControlDelete(ByVal ws As Worksheet)
-  On Error Resume Next
-  Dim a
-  For Each a In CenterButtons
-    ws.Shapes(a).Delete
-  Next
-  On Error GoTo 0
-End Sub
-
-
-Sub DeleteShapes(ByVal ws As Worksheet, ParamArray Shapes())
-  Dim s
-  On Error Resume Next
-  For Each s In Shapes
-    ws.Shapes(s).Delete:
-  Next s
-  On Error GoTo 0
-End Sub
-
-Sub SetUsedRangeLimit(ByRef LastRow&, ByRef LastCol%, ParamArray Args())
-  Dim Arg
-  On Error Resume Next
-  With ThisWorkbook.ActiveSheet
-    For Each Arg In Args
-      If LCase$(.Name) = LCase$(Arg) Then Exit Sub
-    Next
-    Err.clear
-    LastRow = .Cells.Find("*", After:=.Cells(1), LookIn:=xlFormulas, LookAt:=xlWhole, SearchDirection:=xlPrevious, SearchOrder:=xlByRows).row
-    LastCol = .Cells.Find("*", After:=.Cells(1), LookIn:=xlFormulas, LookAt:=xlWhole, SearchDirection:=xlPrevious, SearchOrder:=xlByColumns).column
-  End With
-  On Error GoTo 0
-End Sub
-
-
-
-Private Sub Alert_test()
-  Alert "Xin ch" & ChrW(224) & "o, b" & ChrW(7841) & "n mu" & ChrW(7889) & "n bao nhi" & ChrW(234) & "u gi" & ChrW(226) & "y t" & ChrW(7921) & " " & ChrW(273) & ChrW(7897) & "ng " & ChrW(273) & ChrW(243) & "ng th" & ChrW(244) & "ng b" & ChrW(225) & "o?", vbOKCancel, Timeout:=5
-End Sub
-Private Sub Alert_test2()
-  'Return Value:
-  ' End Timeout = 32000 (Het thoi gian chon)
-  ' OK = 1 (Xac Nhan)
-  ' Cancel = 2 (Huy 1)
-  ' Abort = 3 (Huy 2)
-  ' Retry = 4 (Thu Lai)
-  ' Ignore = 5 (Bo Qua)
-  ' Yes = 6 (Co)
-  ' No = 7 (Khong)
-  
-  'Debug.Print Alert("OK?", vbOKCancel, Timeout:=5)
-  'Debug.Print Alert("OK?", vbAbortRetryIgnore, Timeout:=5)
-  'Debug.Print Alert("OK?", vbYesNoCancel, Timeout:=5)
-
-End Sub
-
-Function AlertUni(ByVal bstrAlertText$, Optional ByVal alb As Long = 0, Optional ByVal alc As Long = 3, Optional ByVal DefaultButton = 0) As Long
-  AlertUni = Application.Assistant.DoAlert("", bstrAlertText, alb, alc, DefaultButton, -1, False)
-  'bstrAlertTitle
-End Function
-' Last Edit: 09/03/2020 17:01
-#If VBA7 Then
-Public Function Alert(ByVal Prompt As String, Optional ByVal Buttons As VbMsgBoxStyle = vbOKOnly, Optional ByVal title As String = "Thông báo", Optional ByVal hwnd As LongPtr = &H0, Optional ByVal Timeout& = 2, Optional ByVal ShowUnderCursor As Boolean = True) As VbMsgBoxResult
-#Else
-Public Function Alert(ByVal Prompt As String, Optional ByVal Buttons As VbMsgBoxStyle = vbOKOnly, Optional ByVal title As String = "Thông báo", Optional ByVal hwnd& = &H0, Optional ByVal Timeout& = 2, Optional ByVal ShowUnderCursor As Boolean = True) As VbMsgBoxResult
-#End If
-  iShowUnderCursor = ShowUnderCursor
-  If Timeout <= 0 Then Timeout = 3600
-  #If VBA7 And Win64 Then
-    hDlgHook = SetWindowsHookEx(5, AddressOf HookProcMsgBox, Application.HinstancePtr, GetCurrentThreadId())
-  #Else
-    hDlgHook = SetWindowsHookEx(5, AddressOf HookProcMsgBox, Application.hInstance, GetCurrentThreadId())
-  #End If
-  Call SetWindowPos(hDlgHWnd, -1, 0, 0, 0, 0, &H2 Or &H1)
-  Alert = MsgBoxTimeoutW(hwnd, VBA.StrConv(Prompt, 64), VBA.StrConv(title, 64), Buttons Or &H2000&, 0&, Timeout * 1000)
-  DeleteObject hFont
-End Function
-
-#If VBA7 And Win64 Then
-Private Function HookProcMsgBox&(ByVal nCode&, ByVal wParam^, ByVal lParam^)
-  Dim hStatic1^, hStatic2^, hButton^, nCaption$, lCaption$
-#ElseIf VBA7 Then
-Private Function HookProcMsgBox&(ByVal nCode&, ByVal wParam As LongPtr, ByVal lParam As LongPtr)
-  Dim hStatic1 As LongPtr, hStatic2 As LongPtr, hButton As LongPtr, nCaption$, lCaption$
-#Else
-Private Function HookProcMsgBox&(ByVal nCode&, ByVal wParam&, ByVal lParam&)
-  Dim hStatic1&, hStatic2&, hButton&, nCaption$, lCaption$
-#End If
-  HookProcMsgBox = CallNextHookEx(hDlgHook, nCode, wParam, lParam)
-  If nCode = 5 Then
-    hFont = CreateFont(13, 0, 0, 0, 500, 0, 0, 0, 0, 0, 0, 0, 0, "Tahoma")
-    hStatic1 = FindWindowEx(wParam, 0&, "Static", n_)
-    hStatic2 = FindWindowEx(wParam, hStatic1, "Static", n_)
-    hDlgHWnd = wParam
-    Call SetWindowPos(hDlgHWnd, -3, 0, 0, 0, 0, &H2 Or &H1)
-    If hStatic2 = 0 Then hStatic2 = hStatic1
-    SendMessage hStatic2, &H30, hFont, ByVal 1&
-    '--------------------------------------
-    nCaption = "&X" & VBA.ChrW(225) & "c nh" & VBA.ChrW(7853) & "n"
-    lCaption = "OK":      GoSub Send
-    nCaption = "&C" & VBA.ChrW(243)
-    lCaption = "&Yes":    GoSub Send
-    nCaption = "&Kh" & VBA.ChrW(244) & "ng"
-    lCaption = "&No":     GoSub Send
-    nCaption = "&H" & VBA.ChrW(7911) & "y"
-    lCaption = "Cancel":  GoSub Send
-    nCaption = "&Th" & VBA.ChrW(7917) & " l" & VBA.ChrW(7841) & "i"
-    lCaption = "&Retry":  GoSub Send
-    nCaption = "&B" & VBA.ChrW(7887) & " qua"
-    lCaption = "&Ignore": GoSub Send
-    nCaption = "H" & VBA.ChrW(7911) & "&y b" & VBA.ChrW(7887)
-    lCaption = "&Abort":  GoSub Send
-    nCaption = "Tr" & VBA.ChrW(7907) & " &gi" & VBA.ChrW(250) & "p"
-    lCaption = "Help":    GoSub Send
-    '--------------------------------------
-    If iShowUnderCursor Then
-      GetCursorPos newPoint
-      GetWindowRect wParam, newRECT
-      MoveWindow wParam, newPoint.X, newPoint.Y, (newRECT.RIGHT - newRECT.Left - 1), (newRECT.BOTTOM - newRECT.Top - 1), False
-    End If
-    UnhookWindowsHookEx hDlgHook
-  End If
-Exit Function
-Send:
-  hButton = FindWindowEx(wParam, 0&, "Button", lCaption)
-  SendMessage hButton, &H30, hFont, 0
-  SetWindowTextW hButton, StrPtr(nCaption)
-Return
-End Function
 
 Function getChromePath()
   getChromePath = "C:\Program Files\Google\Chrome\Application\chrome.exe"
@@ -1866,5 +1423,6 @@ Function GetFolder(ByVal lngFolder&)
  End If
  GetFolder = strPath
 End Function
+
 
 
