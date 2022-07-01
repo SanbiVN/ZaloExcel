@@ -489,7 +489,7 @@ sent:
     o3.FindElementById("richInput", 1500, False).SendKeys message
   End If
 
-  o3.FindElementById("richInput", 1500, False).SendKeys SelenKeys.return
+  o3.FindElementById("richInput", 1500, False).SendKeys SelenKeys.Return
   status = "ok"
   time = VBA.Now
   ZaloAppSearchAndSend = True
@@ -585,7 +585,7 @@ Function SEConnectChrome(Optional ByRef driver As Object, Optional ByRef boolSta
   If Not isOpen Then
     If Not boolStart And Not startIfExists Then GoTo Ends
     Dim CmdLn$
-    CmdLn = IIf(Port > 0, "--remote-debugging-port=" & Port, "") & IIf(headless, " --headless", "") & IIf(UserDataDir <> n_, " --user-data-dir=""" & UserDataDir & """", "") & " --lang=vi" & IIf(url = "", "", IIf(boolApp, " --app=", " ")) & """" & url & """" & IIf(maximize And visible <> 0, " --start-maximized", "") & IIf(position <> n_ And Not maximize, " --window-position=" & position, "") & IIf(screen <> n_ And Not maximize, " --window-size=" & screen, "") & IIf(disableGPU, " --disable-gpu", "") & IIf(PrivateMode, " --incognito", "") & IIf(popupBlocking, "", " --disable-popup-blocking")
+    CmdLn = IIf(Port > 0, " --remote-debugging-port=" & Port, "") & IIf(headless, " --headless", "") & IIf(UserDataDir <> n_, " --user-data-dir=""" & UserDataDir & """", "") & " --lang=vi" & IIf(url = "", "", IIf(boolApp, " --app=", " ")) & """" & url & """" & IIf(maximize And visible <> 0, " --start-maximized", "") & IIf(position <> n_ And Not maximize, " --window-position=" & position, "") & IIf(screen <> n_ And Not maximize, " --window-size=" & screen, "") & IIf(disableGPU, " --disable-gpu", "") & IIf(PrivateMode, " --incognito", "") & IIf(popupBlocking, "", " --disable-popup-blocking")
     Shell "cmd.exe /s /k start """" """ & chromePath & """" & CmdLn, vbHide
     Shell """" & chromePath & """" & CmdLn, vbHide
     Do Until isBrowserOpen:
