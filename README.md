@@ -1,4 +1,4 @@
-# ZaloExcel v1.0.2
+# ZaloExcel v2.0
  Gửi tin nhắn, hình ảnh, biểu đồ và tập tin qua Zalo từ Ứng dụng Excel
 
 Ứng dụng an toàn và miễn phí 100%
