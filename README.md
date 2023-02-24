@@ -1,7 +1,9 @@
 # ZaloExcel v2.0
- Gửi tin nhắn, hình ảnh, biểu đồ và tập tin qua Zalo từ Ứng dụng Excel
+ Gửi hoặc đặt lịch gửi tin nhắn, hình ảnh, bảng, biểu đồ, tập tin hoặc bộ nhớ tạm với ứng dụng ZaloExcel
 
 Ứng dụng an toàn và miễn phí 100%
+
+Tải về
 
 ![zalo_sending](https://user-images.githubusercontent.com/58664571/160992415-44d80779-dc56-4b38-ab25-c68699378309.gif)
 
