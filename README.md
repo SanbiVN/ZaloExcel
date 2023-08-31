@@ -6,9 +6,7 @@
 [Click để tải về 2.6](https://github.com/SanbiVN/ZaloExcel/releases/tag/ZaloExcel)
 
 
-
-![zalo_sending](https://user-images.githubusercontent.com/58664571/160992415-44d80779-dc56-4b38-ab25-c68699378309.gif)
-
+![zaloExcel_LoadContact](https://github.com/SanbiVN/ZaloExcel/assets/58664571/93cd8193-6a79-4c92-98f6-02a19cf434ec)
 
 Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử dụng ứng dụng này.
 
