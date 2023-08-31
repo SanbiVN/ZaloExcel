@@ -1,9 +1,9 @@
-# ZaloExcel v2.4
+# ZaloExcel v2.6
  Gửi hoặc đặt lịch gửi tin nhắn, hình ảnh, bảng, biểu đồ, tập tin hoặc bộ nhớ tạm với ứng dụng ZaloExcel
 
 Ứng dụng an toàn và miễn phí 100%
 
-[Click để tải về 2.4](https://github.com/SanbiVN/ZaloExcel/releases/tag/ZaloExcel)
+[Click để tải về 2.6](https://github.com/SanbiVN/ZaloExcel/releases/tag/ZaloExcel)
 
 
 
