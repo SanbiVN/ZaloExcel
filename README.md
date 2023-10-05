@@ -1,4 +1,4 @@
-# ZaloExcel v2.83
+![image](https://github.com/SanbiVN/ZaloExcel/assets/58664571/9d0f3e6d-5c68-44cc-9703-fd225202acd9)# ZaloExcel v2.83
  Gửi hoặc đặt lịch gửi tin nhắn, hình ảnh, bảng, biểu đồ, tập tin hoặc bộ nhớ tạm với ứng dụng ZaloExcel
 
 Ứng dụng an toàn và miễn phí 100%
@@ -45,14 +45,14 @@ Tiếp theo là màn hình giao diện trang Zalo, có nút [Sửa lại giao di
 
 ## HƯỚNG DẪN SỬ DỤNG
 
-### I. Đăng nhập Zalo Web: 
+### I. Đăng nhập Zalo Web
 
 Trước khi đăng nhập hãy nhấn nút <img title="update_webbrowser" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/1eef24b5-06d0-4f35-be97-bcede5769d7e" width="160"> để cập nhật phiên bản mới nhất của Chrome/Edge và Chromedriver.
 
 Tiếp theo nhấn nút <img title="Picture1" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/57cd41b1-17c2-44cc-9d40-51c1a59cb75f" width="100"> trong ứng dụng để mở Web đăng nhập với mã QR Code hoặc tài khoản số điện thoại. Với lần đầu đăng nhập xong, hãy nhấn lại nút để xác nhận đăng nhập.
 
 
-### II. Cập nhật thành viên trong danh bạ hoặc nhập tay: 
+### II. Cập nhật thành viên trong danh bạ hoặc nhập tay
 <p align="center"><img title="Nút nhấn cập nhật" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/0ea35e45-0bb7-41e5-b1e7-2a782ca6cf04" width="460"></p>
 
 1. Với hộp kiểm [Kèm ảnh đại diện] sẽ tải kèm ảnh đại diện về
@@ -62,13 +62,60 @@ Tiếp theo nhấn nút <img title="Picture1" src="https://github.com/SanbiVN/Za
 
 <p align="center"><img title="Danh bạ ZaloExcel" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/84bc277a-b943-49f4-b888-f907b53e3ddf" width="460"></p>
 
+5. Tìm số Zalo và gửi kết bạn
+
+<p align="center"><img title="Tìm số Zalo và gửi kết bạn" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/45854b95-c144-4192-aa36-39b44d71aa45" width="300"></p>
+Sau khi nhập số điện thoại vào danh sách, tích chọn số cần thực hiện và nhấn nút.
+
+
+
+
 Chọn kiểu dữ liệu để gửi (hình ảnh hướng dẫn):
 
 <p align="center"><img title="zalo_pick" src="https://user-images.githubusercontent.com/58664571/160544552-41b74783-6fe4-44f8-aa0d-b8c28ffb0df1.gif" width="460"></p>
 
+### III. Hướng dẫn gửi tin
+##### Cài đặt gửi chung
 
-## Rủi ro:
-Nếu gửi quá nhiều tin cho nhiều số điện thoại, tài khoản có thể bị Zalo khóa nếu bị phát hiện có hành vi Spam tin nhắn.
+<p align="center"><img title="Cài đặt gửi chung" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/b992c17d-7277-4129-94e0-a23a0b0b808f" width="460"></p>
+Sau khi đặt các cài đặt, tích chọn mục sẽ gửi, thì các mục này sẽ được gửi cho tất cả các thành viên được tích chọn gửi dưới danh sách.
+
+##### Nhập gửi từng thành viên
+<p align="center"><img title="Nhập gửi từng thành viên" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/ad8d75a4-a8b2-4a04-a320-a80a0caa0fbf" width="460"></p>
+Nhập tin văn bản cần gửi vào cột [Tin nhắn]
+Nhập tệp, Ô, Đối tượng, Bộ nhớ tạm
+
+Sau khi đã hoàn thành thiết lặp gửi, nhấn nút <img title="Nút gửi" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/948049bb-28fe-4992-9348-36e55e3a3d35" width="100"> để thực hiện gửi.
+
+Các tùy chọn gửi:
+<p align="center"><img title="Các tùy chọn gửi" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/bd852d4a-f8e6-4ae5-b4d4-306d5f9d2b16" width="460"></p>
+
+1. Gửi đồng thời: chế độ gửi đồng thời của Zalo chỉ gửi được tin văn bản đến nhiều thành viên cùng lúc.
+2. Gửi lại tin đã gửi: có thể tin nhắn đã gửi trước đó
+3. Máy tính tự động kích hoạt ngủ đông sau khi gửi xong.
+
+### IV. Tạo nhóm, gán thẻ và đổi tên gợi nhớ (Chỉ dành cho thành viên) 
+<p align="center"><img title="Tạo nhóm, gán thẻ" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/d5adfe20-692d-4a00-90f5-8e44f3612443" width="460"></p>
+
+- Tạo nhóm hoặc Gán thẻ
+   Có hai cách thực hiện điều này:
+  + Tạo gán nhóm/thẻ chung
+     Nhập tên nhóm/thẻ vào ô [Nhập thẻ/nhóm], sau đó tích chọn thành viên và nhấn nút [Gán thẻ] hoặc [Tạo nhóm]
+    
+  + Tạo gán nhóm/thẻ riêng lẻ
+     Nhập tên nhóm/thẻ riêng lẻ khác nhau vào cột [Tên mới/Nhóm/Thẻ] trong danh sách, nhấn dấu [+] phía trên, menu hiện lên nhấn chọn [Tạo nhiều nhóm] hoặc [Tạo nhiều thẻ]
+  
+- Đổi tên gợi nhớ 
+   Nhập tên mới vào cột [Tên mới/Nhóm/Thẻ] và nhấn nút [Đổi tên mới]
+
+### V. Đặt lịch gửi (Chưa hoàn thiện)
+### VI. Quản lí nhóm (Chưa hoàn thiện)
+
+
+
+## Rủi ro gửi tin Zalo tự động:
+1. Nếu gửi quá nhiều tin cho nhiều số điện thoại, tài khoản có thể bị Zalo khóa nếu bị phát hiện có hành vi Spam tin nhắn.
+2. Tài khoản đã đăng nhập, máy tính của bạn người khác sử dụng gửi tin vào mục đích sai trái. (nên đăng xuất sau khi sử dụng)
 
 ## AN TOÀN VÀ BẢO MẬT
 Ứng dụng an toàn và không chứa mã độc như trình quét đã phát hiện\
