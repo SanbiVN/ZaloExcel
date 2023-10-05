@@ -25,9 +25,54 @@ Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử d�
 3. Chạy cập nhật ChromeDriver trước khi đăng nhập (Nút tự động cập nhật)
 4. Cần đăng nhập Zalo bằng tay (click nút Đăng nhập để mở trình duyệt)
 
-## HƯỚNG DẪN
+## HƯỚNG DẪN CÀI ĐẶT
+Khi mở ứng dụng ZaloExcel lên lần đầu, bạn sẽ thấy cảnh báo có nút nhấn Enable Macro Hoặc Enable Content, nút này nhấn để cho phép ứng dụng chạy Macro VBA
 
-Để gửi ảnh chụp màn hình: chỉ cần nhấn nút chụp màn hình [PS] (Print Screen), sau đó chọn ô cột D và nhấn nút BNT để đặt "[Bộ nhớ tạm]" để gửi. Để quá trình gửi thành công, vui lòng không thao tác sao chép (không nhấn Ctrl+C).
+![Enable Macro](https://github.com/SanbiVN/ZaloExcel/assets/58664571/0176eae9-141f-46e6-aa11-2e82e8bfb1e9)
+
+![Enable Content](https://github.com/SanbiVN/ZaloExcel/assets/58664571/1ec53333-5fe5-4848-b4f1-c192c852f575)
+
+
+Màn hình đầu tiên là hướng dẫn, các bạn hãy đọc từng bước hướng dẫn và làm theo, nhấn vùng trống để đóng hướng dẫn
+
+![tutorials 1](https://github.com/SanbiVN/ZaloExcel/assets/58664571/49e63b11-831e-4d62-9417-ad17349dc14c)
+
+
+
+Sau khi nhấn nút [Nhấn để chép mã], mở VBE, dán mã và làm các bước tiếp theo.
+
+![vbe](https://github.com/SanbiVN/ZaloExcel/assets/58664571/10a4b52c-293e-450c-82c3-c310bb6b10fd)
+
+
+Tiếp theo là màn hình giao diện trang Zalo, có nút [Sửa lại giao diện] nếu các nút điều khiển bị lệch.
+ (Hình ảnh nút)
+![Hình ảnh Nút Sửa lại giao diện](https://github.com/SanbiVN/ZaloExcel/assets/58664571/4f827487-6d3c-4942-94b7-da1d43c2e6ab)
+
+
+
+
+
+## HƯỚNG DẪN SỬ DỤNG
+
+### I. Đăng nhập Zalo Web: 
+
+Trước khi đăng nhập hãy nhấn nút  để cập nhật phiên bản mới nhất của Chrome/Edge và Chromedriver.
+
+
+Tiếp theo nhấn nút Picture1.png trong ứng dụng để mở Web đăng nhập với mã QR Code hoặc tài khoản số điện thoại. Với lần đầu đăng nhập xong, hãy nhấn lại nút để xác nhận đăng nhập.
+
+
+### II. Cập nhật thành viên trong danh bạ hoặc nhập tay: 
+##### 1. Với hộp kiểm [Kèm ảnh đại diện] sẽ tải kèm ảnh đại diện về
+
+##### 2. Nút [TẢI DANH BẠ] sẽ tải danh bạ bạn bè về
+
+##### 3. Nút [TẢI DANH SÁCH THOẠI] sẽ tải danh sách hội thoại về (Danh sách thoại chỉ được bắt đầu lưu trữ từ khi đăng nhập lần đầu)
+
+##### 4. Nhập tay hoặc chép vào danh sách số điện thoại hoặc tên:
+
+
+
 
 Chọn kiểu dữ liệu để gửi (hình ảnh hướng dẫn):
 
@@ -37,27 +82,8 @@ Chọn kiểu dữ liệu để gửi (hình ảnh hướng dẫn):
 ## Rủi ro:
 Nếu gửi quá nhiều tin cho nhiều số điện thoại, tài khoản có thể bị Zalo khóa nếu bị phát hiện có hành vi Spam tin nhắn.
 
-
-Ứng dụng sử dụng Shell và Api để tự động cập nhật driver điều khiển Chrome nên trình duyệt xem là virus, vấn đề này đã nói ở bài viết này
-Vì quá trình cài đặt và cập nhật bằng tay rất vất vả nên cần tự động tác vụ để giảm gánh nặng công việc, nên khó tránh thao tác với System, mà thao tác với System thì liên quan đến vấn đề an toàn, nên Trình quét sẽ nhận diện ứng dụng có nguy cơ gây nguy hiểm cho máy tính của bạn.
-
-
-
 ## AN TOÀN VÀ BẢO MẬT
-### Các dòng lệnh trình quét xem là Virus hay mã nguy hiểm bao gồm:
-1. Shell """" & chromePath & """" & CmdLn, vbHide
-2. URLDownloadToFile(0, eURL, temp & ZIP, 0, 0)
-3. FSO.CopyFile temp & EXE, sb2 & EXE
-4. VBA.CreateObject("Shell.Application").Namespace(temp & "\").CopyHere .Namespace(temp & ZIP).items
-
-### Các API truy cập bộ nhớ System cũng xem là mã tìm tàng:
-- Private Declare PtrSafe Function GlobalUnlock Lib "kernel32" (ByVal hMem As LongPtr) As LongPtr
-- Private Declare PtrSafe Function GlobalLock Lib "kernel32" (ByVal hMem As LongPtr) As LongPtr
-- Private Declare PtrSafe Function GlobalAlloc Lib "kernel32" (ByVal wFlags As Long, ByVal dwBytes As LongPtr) As LongPtr
-- Private Declare PtrSafe Function CloseClipboard Lib "USER32" () As Long
-- Private Declare PtrSafe Function OpenClipboard Lib "USER32" (ByVal hwnd As LongPtr) As LongPtr
-- Private Declare PtrSafe Function EmptyClipboard Lib "USER32" () As Long
-- Private Declare PtrSafe Function lstrcpy Lib "kernel32" (ByVal lpString1 As Any, ByVal lpString2 As Any) As LongPtr
-- Private Declare PtrSafe Function SetClipboardData Lib "USER32" (ByVal wFormat As Long, ByVal hMem As LongPtr) As LongPtr
-- Private Declare PtrSafe Sub CopyMem Lib "kernel32" Alias "RtlMoveMemory" (destination As Any, Source As Any, ByVal Length As LongPtr)
+Ứng dụng an toàn và không chứa mã độc như trình quét đã phát hiện\
+(Ứng dụng miễn phí không có chữ ký số, nên trình quét không duyệt là ứng dụng an toàn)\
+Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử dụng ứng dụng này.\
   
