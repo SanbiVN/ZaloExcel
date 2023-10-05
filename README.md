@@ -75,12 +75,12 @@ Chọn kiểu dữ liệu để gửi (hình ảnh hướng dẫn):
 <p align="center"><img title="zalo_pick" src="https://user-images.githubusercontent.com/58664571/160544552-41b74783-6fe4-44f8-aa0d-b8c28ffb0df1.gif" width="460"></p>
 
 ### III. Hướng dẫn gửi tin
-##### Cài đặt gửi chung
+#### Cài đặt gửi chung
 
 <p align="center"><img title="Cài đặt gửi chung" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/b992c17d-7277-4129-94e0-a23a0b0b808f" width="460"></p>
 Sau khi đặt các cài đặt, tích chọn mục sẽ gửi, thì các mục này sẽ được gửi cho tất cả các thành viên được tích chọn gửi dưới danh sách.
 
-##### Nhập gửi từng thành viên
+#### Nhập gửi từng thành viên
 <p align="center"><img title="Nhập gửi từng thành viên" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/ad8d75a4-a8b2-4a04-a320-a80a0caa0fbf" width="460"></p>
 Nhập tin văn bản cần gửi vào cột [Tin nhắn]
 Nhập tệp, Ô, Đối tượng, Bộ nhớ tạm
