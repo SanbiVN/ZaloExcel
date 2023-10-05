@@ -47,7 +47,7 @@ Tiếp theo là màn hình giao diện trang Zalo, có nút [Sửa lại giao di
 
 ### I. Đăng nhập Zalo Web: 
 
-Trước khi đăng nhập hãy nhấn nút <img title="update_webbrowser" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/1eef24b5-06d0-4f35-be97-bcede5769d7e" width="120"> để cập nhật phiên bản mới nhất của Chrome/Edge và Chromedriver.
+Trước khi đăng nhập hãy nhấn nút <img title="update_webbrowser" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/1eef24b5-06d0-4f35-be97-bcede5769d7e" width="160"> để cập nhật phiên bản mới nhất của Chrome/Edge và Chromedriver.
 
 Tiếp theo nhấn nút <img title="Picture1" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/57cd41b1-17c2-44cc-9d40-51c1a59cb75f" width="100"> trong ứng dụng để mở Web đăng nhập với mã QR Code hoặc tài khoản số điện thoại. Với lần đầu đăng nhập xong, hãy nhấn lại nút để xác nhận đăng nhập.
 
@@ -75,3 +75,6 @@ Nếu gửi quá nhiều tin cho nhiều số điện thoại, tài khoản có 
 (Ứng dụng miễn phí không có chữ ký số, nên trình quét không duyệt là ứng dụng an toàn)\
 Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử dụng ứng dụng này.\
   
+## THAM GIA NHÓM HỖ TRỢ ZALOEXCEL
+Quét mã QR tham gia nhóm hỗ trợ ZaloExcel:
+<p align="center"><img title="THAM GIA NHÓM HỖ TRỢ ZALOEXCEL" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/f8a06068-0452-4757-9981-a75c2e38518c" width="260"></p>
