@@ -9,7 +9,7 @@
 </p>
 Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử dụng ứng dụng này.
 
-## Ứng dụng yêu cầu cài đặt Trình Duyệt Chrome và SeleniumBasic
+### Ứng dụng yêu cầu cài đặt Trình Duyệt Chrome và SeleniumBasic
 
 1. Thao tác tay tải và cài đặt SeleniumBasic
  https://github.com/florentbr/SeleniumBasic
@@ -18,7 +18,7 @@ Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử d�
  
  - Cách cập nhật Chrome, (Đóng tất cả Chrome, mở lại gõ chrome://settings/help để cập nhật):
 <p align="center">
- <img title="update_chrome" src="https://user-images.githubusercontent.com/58664571/160245788-15983109-eaca-44dd-a78d-815493e2f7e6.gif" width="790">
+ <img title="update_chrome" src="https://user-images.githubusercontent.com/58664571/160245788-15983109-eaca-44dd-a78d-815493e2f7e6.gif" width="590">
 </p>
 3. Chạy cập nhật ChromeDriver trước khi đăng nhập (Nút tự động cập nhật)
 4. Cần đăng nhập Zalo bằng tay (click nút Đăng nhập để mở trình duyệt)
@@ -30,15 +30,17 @@ Khi mở ứng dụng ZaloExcel lên lần đầu, bạn sẽ thấy cảnh báo
 <img title="Enable Content" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/1ec53333-5fe5-4848-b4f1-c192c852f575" width="360">
 </p>
 Màn hình đầu tiên là hướng dẫn, các bạn hãy đọc từng bước hướng dẫn và làm theo, nhấn vùng trống để đóng hướng dẫn
+
 <p align="center">
 <img title="tutorials 1" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/49e63b11-831e-4d62-9417-ad17349dc14c" width="660">
 </p>
+
 Sau khi nhấn nút [Nhấn để chép mã], mở VBE, dán mã và làm các bước tiếp theo.
 
 <p align="center"><img title="vbe" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/10a4b52c-293e-450c-82c3-c310bb6b10fd" width="460"></p>
 
 Tiếp theo là màn hình giao diện trang Zalo, có nút [Sửa lại giao diện] nếu các nút điều khiển bị lệch.
- (Hình ảnh nút) <img title="Hình ảnh Nút Sửa lại giao diện" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/4f827487-6d3c-4942-94b7-da1d43c2e6ab" width="120">
+ (Hình ảnh nút) <img title="Hình ảnh Nút Sửa lại giao diện" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/4f827487-6d3c-4942-94b7-da1d43c2e6ab" width="140">
 
 
 ## HƯỚNG DẪN SỬ DỤNG
@@ -52,10 +54,11 @@ Tiếp theo nhấn nút <img title="Picture1" src="https://github.com/SanbiVN/Za
 
 ### II. Cập nhật thành viên trong danh bạ hoặc nhập tay: 
 <p align="center"><img title="Nút nhấn cập nhật" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/0ea35e45-0bb7-41e5-b1e7-2a782ca6cf04" width="460"></p>
-- Với hộp kiểm [Kèm ảnh đại diện] sẽ tải kèm ảnh đại diện về
-- Nút [TẢI DANH BẠ] sẽ tải danh bạ bạn bè về
-- Nút [TẢI DANH SÁCH THOẠI] sẽ tải danh sách hội thoại về (Danh sách thoại chỉ được bắt đầu lưu trữ từ khi đăng nhập lần đầu)
-- Nhập tay hoặc chép vào danh sách số điện thoại hoặc tên:
+
+1. Với hộp kiểm [Kèm ảnh đại diện] sẽ tải kèm ảnh đại diện về
+2. Nút [TẢI DANH BẠ] sẽ tải danh bạ bạn bè về
+3. Nút [TẢI DANH SÁCH THOẠI] sẽ tải danh sách hội thoại về (Danh sách thoại chỉ được bắt đầu lưu trữ từ khi đăng nhập lần đầu)
+4. Nhập tay hoặc chép vào danh sách số điện thoại hoặc tên:
 
 <p align="center"><img title="Danh bạ ZaloExcel" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/84bc277a-b943-49f4-b888-f907b53e3ddf" width="460"></p>
 
