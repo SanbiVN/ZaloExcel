@@ -118,7 +118,7 @@ Các tùy chọn gửi:
 ### VI. Quản lí nhóm (Chưa hoàn thiện)
 ### VII. Tải tin nhắn hội thoại
   Nhấn vào Icon Zalo, di chuyển đến trang ZaloData
-  Nhập tên vào danh sách hoặc nhấn nút <img title="Dịch chuyển qua lại các trang tính" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/ea80c7d9-9935-4971-af1d-f5b9d9fec662" width="130"> để tải danh sách thoại
+  Nhập tên vào danh sách hoặc nhấn nút <img title="Dịch chuyển qua lại các trang tính" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/ea80c7d9-9935-4971-af1d-f5b9d9fec662" width="230"> để tải danh sách thoại
   Tích chọn tên dưới danh sách sẽ thực hiện thu thập tin nhắn <img title="Dịch chuyển qua lại các trang tính" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/8981ac87-8b53-4f4d-9357-47fa10739f71" width="130">
 
 ### Tính năng di chuyển qua lại nhanh các trang tính
