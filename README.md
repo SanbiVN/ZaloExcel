@@ -1,4 +1,5 @@
-![image](https://github.com/SanbiVN/ZaloExcel/assets/58664571/9d0f3e6d-5c68-44cc-9703-fd225202acd9)# ZaloExcel v2.83
+
+# ZaloExcel v2.83
  Gửi hoặc đặt lịch gửi tin nhắn, hình ảnh, bảng, biểu đồ, tập tin hoặc bộ nhớ tạm với ứng dụng ZaloExcel
 
 Ứng dụng an toàn và miễn phí 100%
@@ -104,7 +105,7 @@ Các tùy chọn gửi:
     
   + Tạo gán nhóm/thẻ riêng lẻ
      Nhập tên nhóm/thẻ riêng lẻ khác nhau vào cột [Tên mới/Nhóm/Thẻ] trong danh sách, nhấn dấu [+] phía trên, menu hiện lên nhấn chọn [Tạo nhiều nhóm] hoặc [Tạo nhiều thẻ]
-  
+  ![image](https://github.com/SanbiVN/ZaloExcel/assets/58664571/9d0f3e6d-5c68-44cc-9703-fd225202acd9)
 - Đổi tên gợi nhớ 
    Nhập tên mới vào cột [Tên mới/Nhóm/Thẻ] và nhấn nút [Đổi tên mới]
 
