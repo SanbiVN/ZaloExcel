@@ -95,7 +95,7 @@ Các tùy chọn gửi:
 2. Gửi lại tin đã gửi: có thể tin nhắn đã gửi trước đó
 3. Máy tính tự động kích hoạt ngủ đông sau khi gửi xong.
 
-### IV. Tạo nhóm, gán thẻ và đổi tên gợi nhớ (Chỉ dành cho thành viên) 
+### IV. Tạo nhóm, gán thẻ và đổi tên gợi nhớ (*Bắt buộc: Đã là bạn bè) 
 <p align="center"><img title="Tạo nhóm, gán thẻ" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/d5adfe20-692d-4a00-90f5-8e44f3612443" width="460"></p>
 
 - Tạo nhóm hoặc Gán thẻ
