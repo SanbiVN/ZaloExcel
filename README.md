@@ -104,8 +104,9 @@ Các tùy chọn gửi:
      Nhập tên nhóm/thẻ vào ô [Nhập thẻ/nhóm], sau đó tích chọn thành viên và nhấn nút [Gán thẻ] hoặc [Tạo nhóm]
     
   + Tạo gán nhóm/thẻ riêng lẻ
-     Nhập tên nhóm/thẻ riêng lẻ khác nhau vào cột [Tên mới/Nhóm/Thẻ] trong danh sách, nhấn dấu [+] phía trên, menu hiện lên nhấn chọn [Tạo nhiều nhóm] hoặc [Tạo nhiều thẻ]
-  ![image](https://github.com/SanbiVN/ZaloExcel/assets/58664571/9d0f3e6d-5c68-44cc-9703-fd225202acd9)
+     Nhập tên nhóm/thẻ riêng lẻ khác nhau vào cột [Tên mới/Nhóm/Thẻ] trong danh sách, nhấn dấu <img title="Tạo nhóm, gán thẻ" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/9d0f3e6d-5c68-44cc-9703-fd225202acd9" width="160"> phía trên, menu hiện lên nhấn chọn [Tạo nhiều nhóm] hoặc [Tạo nhiều thẻ]
+    
+
 - Đổi tên gợi nhớ 
    Nhập tên mới vào cột [Tên mới/Nhóm/Thẻ] và nhấn nút [Đổi tên mới]
 
