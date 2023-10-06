@@ -5,6 +5,8 @@
 Ứng dụng an toàn và miễn phí 100%
 
 [Click để tải về 2.83](https://github.com/SanbiVN/ZaloExcel/releases/tag/ZaloExcel)
+https://tooomm.github.io/github-release-stats/?username=SanbiVN&repository=ZaloExcel
+
 <p align="center">
 <img title="zaloExcel_LoadContact" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/93cd8193-6a79-4c92-98f6-02a19cf434ec" width="790">
 </p>
