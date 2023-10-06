@@ -116,15 +116,20 @@ Các tùy chọn gửi:
 
 ### V. Đặt lịch gửi (Chưa hoàn thiện)
 ### VI. Quản lí nhóm (Chưa hoàn thiện)
+### VII. Tải tin nhắn hội thoại
+  Nhấn vào Icon Zalo, di chuyển đến trang ZaloData
+  Nhập tên vào danh sách hoặc nhấn nút <img title="Dịch chuyển qua lại các trang tính" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/ea80c7d9-9935-4971-af1d-f5b9d9fec662" width="130"> để tải danh sách thoại
+  Tích chọn tên dưới danh sách sẽ thực hiện thu thập tin nhắn <img title="Dịch chuyển qua lại các trang tính" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/8981ac87-8b53-4f4d-9357-47fa10739f71" width="130">
 
-### Dịch chuyển qua lại các trang tính
-Nhấn vào Icon Zalo sẽ hiện ra danh sách trang tính, rê chuột lên sẽ tự động Dịch chuyển
-Nhấn vào tên để Activate, nếu không nhấn rê chuột ra ngoài sẽ tự động trở lại Trang tính trước đó
+### Tính năng di chuyển qua lại nhanh các trang tính
+  Nhấn vào Icon Zalo sẽ hiện ra danh sách trang tính, rê chuột lên sẽ tự động Dịch chuyển
+  Nhấn vào tên để Activate, nếu không nhấn rê chuột ra ngoài sẽ tự động trở lại Trang tính trước đó
+  
 <p align="center"><img title="Dịch chuyển qua lại các trang tính" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/1b760bfc-b5c7-453d-ada2-c94927e71394" width="760"></p>
 
 ## Rủi ro gửi tin Zalo tự động:
-1. Nếu gửi quá nhiều tin cho nhiều số điện thoại, tài khoản có thể bị Zalo khóa nếu bị phát hiện có hành vi Spam tin nhắn.
-2. Tài khoản đã đăng nhập, máy tính của bạn người khác sử dụng gửi tin vào mục đích sai trái. (nên đăng xuất sau khi sử dụng)
+ 1. Nếu gửi quá nhiều tin cho nhiều số điện thoại, tài khoản có thể bị Zalo khóa nếu bị phát hiện có hành vi Spam tin nhắn.
+ 2. Tài khoản đã đăng nhập, máy tính của bạn người khác sử dụng gửi tin vào mục đích sai trái. (nên đăng xuất sau khi sử dụng)
 
 ## AN TOÀN VÀ BẢO MẬT
 Ứng dụng an toàn và không chứa mã độc như trình quét đã phát hiện\
