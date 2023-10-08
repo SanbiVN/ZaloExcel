@@ -115,7 +115,7 @@ Các tùy chọn gửi:
    Nhập tên mới vào cột [Tên mới/Nhóm/Thẻ] và nhấn nút [Đổi tên mới]
 
 ### V. Đặt lịch gửi (Chưa hoàn thiện)
-### VI. Quản lí nhóm (Chưa hoàn thiện)
+### VI. Quản lý nhóm (Chưa hoàn thiện)
 ### VII. Tải tin nhắn hội thoại
   Nhấn vào Icon Zalo, di chuyển đến trang ZaloData
   Nhập tên vào danh sách hoặc nhấn nút <img title="Dịch chuyển qua lại các trang tính" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/ea80c7d9-9935-4971-af1d-f5b9d9fec662" width="230"> để tải danh sách thoại
