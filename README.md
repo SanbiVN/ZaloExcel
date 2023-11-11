@@ -14,20 +14,6 @@
 </p>
 Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử dụng ứng dụng này.
 
-### Ứng dụng yêu cầu cài đặt Trình Duyệt Chrome và SeleniumBasic
-
-1. Thao tác tay tải và cài đặt SeleniumBasic
- https://github.com/florentbr/SeleniumBasic
-2. Thao tác tay cài đặt ứng dụng Chrome và cập nhật Chrome
- https://www.google.com/intl/vi_vn/chrome/
- 
- - Cách cập nhật Chrome, (Đóng tất cả Chrome, mở lại gõ chrome://settings/help để cập nhật):
-<p align="center">
- <img title="update_chrome" src="https://user-images.githubusercontent.com/58664571/160245788-15983109-eaca-44dd-a78d-815493e2f7e6.gif" width="590">
-</p>
-3. Chạy cập nhật ChromeDriver trước khi đăng nhập (Nút tự động cập nhật)
-4. Cần đăng nhập Zalo bằng tay (click nút Đăng nhập để mở trình duyệt)
-
 ## HƯỚNG DẪN CÀI ĐẶT
 Khi mở ứng dụng ZaloExcel lên lần đầu, bạn sẽ thấy cảnh báo có nút nhấn Enable Macro Hoặc Enable Content, nút này nhấn để cho phép ứng dụng chạy Macro VBA
 <p align="center">
