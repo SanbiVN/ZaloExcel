@@ -1,5 +1,5 @@
 
-# ZaloExcel v2.84
+# ZaloExcel v2.85
  Gửi hoặc đặt lịch gửi tin nhắn, hình ảnh, bảng, biểu đồ, tập tin hoặc bộ nhớ tạm với ứng dụng ZaloExcel
 
 Ứng dụng an toàn và miễn phí 100%
