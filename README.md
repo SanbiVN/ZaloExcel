@@ -4,7 +4,7 @@
 
 Ứng dụng an toàn và miễn phí 100%
 
-[Click để tải về 2.86](https://github.com/SanbiVN/ZaloExcel/releases/download/ZaloExcel/ZaloExcel_v2.86.zip)
+[Click để tải về 2.87](https://github.com/SanbiVN/ZaloExcel/releases/download/ZaloExcel/ZaloExcel_v2.87.zip)
 
 [![Github All Releases](https://img.shields.io/github/downloads/SanbiVN/ZaloExcel/total.svg)]()
 
