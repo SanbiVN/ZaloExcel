@@ -7,7 +7,7 @@
 [Click để tải về 2.88](https://github.com/SanbiVN/ZaloExcel/releases/download/ZaloExcel/ZaloExcel_v2.88.zip)
 
 [![Github All Releases](https://img.shields.io/github/downloads/SanbiVN/ZaloExcel/total.svg)]()
-
+***Mật khẩu VBA là 1
 
 <p align="center">
 <img title="zaloExcel_LoadContact" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/93cd8193-6a79-4c92-98f6-02a19cf434ec" width="790">
