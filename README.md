@@ -5,7 +5,7 @@
 Ứng dụng an toàn và miễn phí 100%
 
 [Click để tải về 2.91](https://github.com/SanbiVN/ZaloExcel/releases/download/ZaloExcel/ZaloExcel_v2.91.xlsm) \
-[![Github All Releases](https://img.shields.io/github/downloads/SanbiVN/ZaloExcel/total.svg)]() 
+[![Github All Releases](https://img.shields.io/github/downloads/SanbiVN/ZaloExcel/total.svg)](https://github.com/SanbiVN/ZaloExcel/releases/download/ZaloExcel/ZaloExcel_v2.91.xlsm) 
 
 (*** Mật khẩu VBA là 1)
 
