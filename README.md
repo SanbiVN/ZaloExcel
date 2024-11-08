@@ -1,11 +1,11 @@
 
-# ZaloExcel v2.91
+# ZaloExcel v2.92
  Gửi hoặc đặt lịch gửi tin nhắn, hình ảnh, bảng, biểu đồ, tập tin hoặc bộ nhớ tạm với ứng dụng ZaloExcel
 
 Ứng dụng an toàn và miễn phí 100%
 
-[Click để tải về 2.91](https://github.com/SanbiVN/ZaloExcel/releases/download/ZaloExcel/ZaloExcel_v2.91.xlsm) \
-[![Github All Releases](https://img.shields.io/github/downloads/SanbiVN/ZaloExcel/total.svg)](https://github.com/SanbiVN/ZaloExcel/releases/download/ZaloExcel/ZaloExcel_v2.91.xlsm) 
+[Click để tải về 2.92](https://github.com/SanbiVN/ZaloExcel/releases/download/ZaloExcel/ZaloExcel_v2.92.xlsm) \
+[![Github All Releases](https://img.shields.io/github/downloads/SanbiVN/ZaloExcel/total.svg)](https://github.com/SanbiVN/ZaloExcel/releases/download/ZaloExcel/ZaloExcel_v2.92.xlsm) 
 
 (*** Mật khẩu VBA là 1)
 
