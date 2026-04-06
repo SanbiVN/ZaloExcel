@@ -66,6 +66,9 @@ Chọn kiểu dữ liệu để gửi (hình ảnh hướng dẫn):
 <p align="center"><img title="zalo_pick" src="https://user-images.githubusercontent.com/58664571/160544552-41b74783-6fe4-44f8-aa0d-b8c28ffb0df1.gif" width="460"></p>
 
 ### III. Hướng dẫn gửi tin
+
+(Không nên gửi đồng loạt quá nhiều, Zalo sẽ tự động phát hiện spam và khóa tài khoản) 
+
 #### Cài đặt gửi chung
 
 <p align="center"><img title="Cài đặt gửi chung" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/b992c17d-7277-4129-94e0-a23a0b0b808f" width="460"></p>
