@@ -117,7 +117,8 @@ Các tùy chọn gửi:
 
 ## Rủi ro gửi tin Zalo tự động:
  1. Nếu gửi quá nhiều tin cho nhiều số điện thoại, tài khoản có thể bị Zalo khóa nếu bị phát hiện có hành vi Spam tin nhắn.
- 2. Tài khoản đã đăng nhập, máy tính của bạn người khác sử dụng gửi tin vào mục đích sai trái. (nên đăng xuất sau khi sử dụng)
+ 2. Không gửi 1 tin nhắn cho quá nhiều người (có người lạ) và nhóm. Tài khoản sẽ bị Zalo khóa. 
+ 3. Tài khoản đã đăng nhập, máy tính của bạn người khác sử dụng gửi tin vào mục đích sai trái. (nên đăng xuất sau khi sử dụng)
 
 ## AN TOÀN VÀ BẢO MẬT
 Ứng dụng an toàn và không chứa mã độc như trình quét đã phát hiện\
