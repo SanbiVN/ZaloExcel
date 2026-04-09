@@ -26,11 +26,10 @@ Màn hình đầu tiên là hướng dẫn, các bạn hãy đọc từng bướ
 <img title="tutorials 1" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/49e63b11-831e-4d62-9417-ad17349dc14c" width="660">
 </p>
 
-Sau khi nhấn nút [Nhấn để chép mã], mở VBE, dán mã và làm các bước tiếp theo.
 
-<p align="center"><img title="vbe" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/10a4b52c-293e-450c-82c3-c310bb6b10fd" width="460"></p>
 
 Tiếp theo là màn hình giao diện trang Zalo, có nút [Sửa lại giao diện] nếu các nút điều khiển bị lệch.
+
  (Hình ảnh nút) <img title="Hình ảnh Nút Sửa lại giao diện" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/4f827487-6d3c-4942-94b7-da1d43c2e6ab" width="140">
 
 
