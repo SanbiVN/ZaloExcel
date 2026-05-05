@@ -6,15 +6,21 @@
 
 Ứng dụng an toàn và miễn phí 100%
 
-[Click để tải về 2.97](https://github.com/SanbiVN/ZaloExcel/releases/download/ZaloExcel/ZaloExcel_v2.97.xlsm) \
-[![Github All Releases](https://img.shields.io/github/downloads/SanbiVN/ZaloExcel/total.svg)](https://github.com/SanbiVN/ZaloExcel/releases/download/ZaloExcel/ZaloExcel_v2.97.xlsm) 
-
-(*** Mật khẩu VBA là 1)
-
 <p align="center">
 <img title="zaloExcel_LoadContact" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/93cd8193-6a79-4c92-98f6-02a19cf434ec" width="790">
 </p>
 Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử dụng ứng dụng này.
+
+# TẢI XUỐNG
+<!-- items that need to be updated release to release -->
+[ptUserAddin]: https://github.com/SanbiVN/ZaloExcel/releases/download/ZaloExcel/ZaloExcel_v2.97.xlsm
+
+[![Lượt tải](https://img.shields.io/github/downloads/SanbiVN/FitRowXL/total.svg)](https://github.com/SanbiVN/FitRowXL/releases/) 
+|  Thông tin   | Tải xuống | Ghi chú |
+|--------------|-----------|----------|
+| ZaloExcel v2.97 | [Nhấn tải][ptUserAddin] | Tệp excel xlsm |
+
+(*** Mật khẩu VBA là 1)
 
 ## HƯỚNG DẪN CÀI ĐẶT
 Khi mở ứng dụng ZaloExcel lên lần đầu, bạn sẽ thấy cảnh báo có nút nhấn Enable Macro Hoặc Enable Content, nút này nhấn để cho phép ứng dụng chạy Macro VBA
