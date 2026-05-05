@@ -1,6 +1,6 @@
 # ⭐iZalo - Trình điều khiển Zalo Web cho Excel phiên bản 2026
 
- Gửi hoặc đặt lịch gửi tin nhắn, hình ảnh, bảng, biểu đồ, tập tin hoặc bộ nhớ tạm với Add-in Excel iZalo
+ Gửi hoặc đặt lịch gửi tin nhắn, hình ảnh, bảng, biểu đồ, tập tin hoặc bộ nhớ tạm với Add-in Excel iZalo \
  Quản lý nhóm, tạo bình chọn, lấy kết quả bình chọn.
 
 Ứng dụng an toàn và miễn phí 100%
