@@ -60,14 +60,7 @@ Màn hình đầu tiên là hướng dẫn, các bạn hãy đọc từng bướ
 
 ## HƯỚNG DẪN SỬ DỤNG
 
-### I. Đăng nhập Zalo Web
-
-Trước khi đăng nhập hãy nhấn nút <img title="update_webbrowser" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/1eef24b5-06d0-4f35-be97-bcede5769d7e" width="160"> để cập nhật phiên bản mới nhất của Chrome/Edge và Chromedriver.
-
-Tiếp theo nhấn nút <img title="Picture1" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/57cd41b1-17c2-44cc-9d40-51c1a59cb75f" width="100"> trong ứng dụng để mở Web đăng nhập với mã QR Code hoặc tài khoản số điện thoại. Với lần đầu đăng nhập xong, hãy nhấn lại nút để xác nhận đăng nhập.
-
-
-### II. Cập nhật thành viên trong danh bạ hoặc nhập tay
+### Cập nhật thành viên trong danh bạ hoặc nhập tay
 <p align="center"><img title="Nút nhấn cập nhật" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/0ea35e45-0bb7-41e5-b1e7-2a782ca6cf04" width="460"></p>
 
 1. Với hộp kiểm [Kèm ảnh đại diện] sẽ tải kèm ảnh đại diện về
@@ -89,7 +82,7 @@ Chọn kiểu dữ liệu để gửi (hình ảnh hướng dẫn):
 
 <p align="center"><img title="zalo_pick" src="https://user-images.githubusercontent.com/58664571/160544552-41b74783-6fe4-44f8-aa0d-b8c28ffb0df1.gif" width="460"></p>
 
-### III. Hướng dẫn gửi tin
+### Hướng dẫn gửi tin
 
 (Không nên gửi đồng loạt quá nhiều, Zalo sẽ tự động phát hiện spam và khóa tài khoản) 
 
@@ -112,7 +105,7 @@ Các tùy chọn gửi:
 2. Gửi lại tin đã gửi: có thể tin nhắn đã gửi trước đó
 3. Máy tính tự động kích hoạt ngủ đông sau khi gửi xong.
 
-### IV. Tạo nhóm, gán thẻ và đổi tên gợi nhớ (*Bắt buộc: Đã là bạn bè) 
+### Tạo nhóm, gán thẻ và đổi tên gợi nhớ (*Bắt buộc: Đã là bạn bè) 
 <p align="center"><img title="Tạo nhóm, gán thẻ" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/d5adfe20-692d-4a00-90f5-8e44f3612443" width="460"></p>
 
 - Tạo nhóm hoặc Gán thẻ
@@ -127,9 +120,9 @@ Các tùy chọn gửi:
 - Đổi tên gợi nhớ 
    Nhập tên mới vào cột [Tên mới/Nhóm/Thẻ] và nhấn nút [Đổi tên mới]
 
-### V. Đặt lịch gửi (Chưa hoàn thiện)
-### VI. Quản lý nhóm (Chưa hoàn thiện)
-### VII. Tải tin nhắn hội thoại
+### Đặt lịch gửi (Chưa hoàn thiện)
+### Quản lý nhóm (Chưa hoàn thiện)
+### Tải tin nhắn hội thoại
   Nhấn vào Icon Zalo, di chuyển đến trang ZaloData
   Nhập tên vào danh sách hoặc nhấn nút <img title="Dịch chuyển qua lại các trang tính" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/ea80c7d9-9935-4971-af1d-f5b9d9fec662" width="230"> để tải danh sách thoại
   Tích chọn tên dưới danh sách sẽ thực hiện thu thập tin nhắn <img title="Dịch chuyển qua lại các trang tính" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/8981ac87-8b53-4f4d-9357-47fa10739f71" width="130">
