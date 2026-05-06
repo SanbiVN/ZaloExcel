@@ -53,13 +53,8 @@ Khi mở ứng dụng iZalo lên lần đầu, bạn sẽ thấy cảnh báo có
 <img title="Enable Macro" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/0176eae9-141f-46e6-aa11-2e82e8bfb1e9" width="260">
 <img title="Enable Content" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/1ec53333-5fe5-4848-b4f1-c192c852f575" width="360">
 </p>
-Màn hình đầu tiên là hướng dẫn, các bạn hãy đọc từng bước hướng dẫn và làm theo, nhấn vùng trống để đóng hướng dẫn
 
-<p align="center">
-<img title="tutorials 1" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/49e63b11-831e-4d62-9417-ad17349dc14c" width="660">
-</p>
-
-
+Màn hình đầu tiên của tệp iZalo.xlsm là hướng dẫn, hãy đọc từng bước hướng dẫn để biết cách sử dụng.
 
 ## ✳HƯỚNG DẪN SỬ DỤNG
 
