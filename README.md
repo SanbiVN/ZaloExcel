@@ -8,7 +8,7 @@
 <p align="center">
 <img title="zaloExcel_LoadContact" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/93cd8193-6a79-4c92-98f6-02a19cf434ec" width="790">
 </p>
-Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử dụng ứng dụng này.
+Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử dụng iZalo Add-in.
 
 # TẢI XUỐNG
 <!-- items that need to be updated release to release -->
