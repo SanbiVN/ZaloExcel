@@ -132,6 +132,11 @@ Các tùy chọn gửi:
   
 <p align="center"><img title="Dịch chuyển qua lại các trang tính" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/1b760bfc-b5c7-453d-ada2-c94927e71394" width="760"></p>
 
+### ✨Giao diện tùy chỉnh
+
+<img width="723" height="466" alt="iZalo_themes" src="https://github.com/user-attachments/assets/25266b81-7fe5-4ec0-aaa3-f9325dd78cbb" />
+
+
 ## Rủi ro gửi tin Zalo tự động:
  1. Nếu gửi quá nhiều tin cho nhiều số điện thoại, tài khoản có thể bị Zalo khóa nếu bị phát hiện có hành vi Spam tin nhắn.
  2. Không gửi 1 tin nhắn cho quá nhiều người (có người lạ) và nhóm. Tài khoản sẽ bị Zalo khóa. 
