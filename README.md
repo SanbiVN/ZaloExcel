@@ -6,6 +6,10 @@
 Ứng dụng an toàn và miễn phí 100%
 
 <p align="center">
+<img width="940" height="114" alt="image" src="https://github.com/user-attachments/assets/1477b3c7-3839-40bb-ad02-9ddfa7dbf542" />
+</p>
+
+<p align="center">
 <img title="zaloExcel_LoadContact" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/93cd8193-6a79-4c92-98f6-02a19cf434ec" width="490">
 </p>
 Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử dụng iZalo Add-in.
