@@ -6,13 +6,13 @@
 Ứng dụng an toàn và miễn phí 100%
 
 <p align="center">
-<img title="zaloExcel_LoadContact" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/93cd8193-6a79-4c92-98f6-02a19cf434ec" width="790">
+<img title="zaloExcel_LoadContact" src="https://github.com/SanbiVN/ZaloExcel/assets/58664571/93cd8193-6a79-4c92-98f6-02a19cf434ec" width="490">
 </p>
 Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử dụng iZalo Add-in.
 
 # TẢI XUỐNG
 <!-- items that need to be updated release to release -->
-[ptUserAddin]: https://github.com/SanbiVN/ZaloExcel/releases/download/izalo_v3.3/iZalo_v3.3.zip
+[ptUserAddin]: https://github.com/SanbiVN/ZaloExcel/releases/download/izalo_v3.4/iZalo_v3.4.zip
 
 [![Lượt tải](https://img.shields.io/github/downloads/SanbiVN/ZaloExcel/total.svg)](https://github.com/SanbiVN/ZaloExcel/releases/) 
 |  Tệp   | Tải xuống | Ghi chú |
