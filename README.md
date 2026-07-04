@@ -16,7 +16,7 @@ Vấn đề bảo mật tài khoản Zalo không bị ảnh hưởng khi sử d�
 
 # TẢI XUỐNG
 <!-- items that need to be updated release to release -->
-[ptUserAddin]: https://github.com/SanbiVN/ZaloExcel/releases/download/iZalo_v3.5/iZalo_v3.5.zip
+[ptUserAddin]: https://github.com/SanbiVN/ZaloExcel/releases/download/iZalo_v3.6/iZalo_v3.6.zip
 
 [![Lượt tải](https://img.shields.io/github/downloads/SanbiVN/ZaloExcel/total.svg)](https://github.com/SanbiVN/ZaloExcel/releases/) 
 |  Tệp   | Tải xuống | Ghi chú |
